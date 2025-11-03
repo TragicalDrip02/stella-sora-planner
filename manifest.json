@@ -1,0 +1,5965 @@
+{
+  "characters": [
+    {
+      "id": "amber",
+      "name": "Amber",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Colossus Core",
+        "Colossus Essence"
+      ],
+      "skillMaterials": [
+        "Shooter Game Cartridge",
+        "Barrage Game Cartridge",
+        "Demon Bee Game Cartridge"
+      ]
+    },
+    {
+      "id": "ann",
+      "name": "Ann",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Wrath Beauty",
+        "Wind Essence"
+      ],
+      "skillMaterials": [
+        "Shooter Game Cartridge",
+        "Barrage Game Cartridge",
+        "Demon Bee Game Cartridge"
+      ]
+    },
+    {
+      "id": "canace",
+      "name": "Canace",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Wrath Beauty",
+        "Wind Essence"
+      ],
+      "skillMaterials": [
+        "Kung Fu Game Cartridge",
+        "Fighting Game Cartridge",
+        "Phantom Game Cartridge"
+      ]
+    },
+    {
+      "id": "caramel",
+      "name": "Caramel",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Crimson Tempter",
+        "Evil Bloom Essence"
+      ],
+      "skillMaterials": [
+        "Tapping Game Cartridge",
+        "Rhythm Game Cartridge",
+        "Magic Sound Game Cartridge"
+      ]
+    },
+    {
+      "id": "chitose",
+      "name": "Chitose",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Nightlit Haven",
+        "Tidal Essence"
+      ],
+      "skillMaterials": [
+        "Shooter Game Cartridge",
+        "Barrage Game Cartridge",
+        "Demon Bee Game Cartridge"
+      ]
+    },
+    {
+      "id": "chixia",
+      "name": "Chixia",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Colossus Core",
+        "Colossus Essence"
+      ],
+      "skillMaterials": [
+        "Kung Fu Game Cartridge",
+        "Fighting Game Cartridge",
+        "Phantom Game Cartridge"
+      ]
+    },
+    {
+      "id": "coronis",
+      "name": "Coronis",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Crimson Tempter",
+        "Evil Bloom Essence"
+      ],
+      "skillMaterials": [
+        "Shooter Game Cartridge",
+        "Barrage Game Cartridge",
+        "Demon Bee Game Cartridge"
+      ]
+    },
+    {
+      "id": "cosette",
+      "name": "Cosette",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Crimson Tempter",
+        "Evil Bloom Essence"
+      ],
+      "skillMaterials": [
+        "Kung Fu Game Cartridge",
+        "Fighting Game Cartridge",
+        "Phantom Game Cartridge"
+      ]
+    },
+    {
+      "id": "flora",
+      "name": "Flora",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Colossus Core",
+        "Colossus Essence"
+      ],
+      "skillMaterials": [
+        "Tapping Game Cartridge",
+        "Rhythm Game Cartridge",
+        "Magic Sound Game Cartridge"
+      ]
+    },
+    {
+      "id": "freesia",
+      "name": "Freesia",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Nightlit Haven",
+        "Tidal Essence"
+      ],
+      "skillMaterials": [
+        "Kung Fu Game Cartridge",
+        "Fighting Game Cartridge",
+        "Phantom Game Cartridge"
+      ]
+    },
+    {
+      "id": "gerie",
+      "name": "Gerie",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Forest Elf Fang",
+        "Forest Elf Essence"
+      ],
+      "skillMaterials": [
+        "Kung Fu Game Cartridge",
+        "Fighting Game Cartridge",
+        "Phantom Game Cartridge"
+      ]
+    },
+    {
+      "id": "iris",
+      "name": "Iris",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Nightlit Haven",
+        "Tidal Essence"
+      ],
+      "skillMaterials": [
+        "Kung Fu Game Cartridge",
+        "Fighting Game Cartridge",
+        "Phantom Game Cartridge"
+      ]
+    },
+    {
+      "id": "jinglin",
+      "name": "Jinglin",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Radiant Feather Crown",
+        "Radiant Crown Essence"
+      ],
+      "skillMaterials": [
+        "Kung Fu Game Cartridge",
+        "Fighting Game Cartridge",
+        "Phantom Game Cartridge"
+      ]
+    },
+    {
+      "id": "kasimira",
+      "name": "Kasimira",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Colossus Core",
+        "Colossus Essence"
+      ],
+      "skillMaterials": [
+        "Kung Fu Game Cartridge",
+        "Fighting Game Cartridge",
+        "Phantom Game Cartridge"
+      ]
+    },
+    {
+      "id": "laru",
+      "name": "Laru",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Radiant Feather Crown",
+        "Radiant Crown Essence"
+      ],
+      "skillMaterials": [
+        "Tapping Game Cartridge",
+        "Rhythm Game Cartridge",
+        "Magic Sound Game Cartridge"
+      ]
+    },
+    {
+      "id": "minova",
+      "name": "Minova",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Radiant Feather Crown",
+        "Radiant Crown Essence"
+      ],
+      "skillMaterials": [
+        "Kung Fu Game Cartridge",
+        "Fighting Game Cartridge",
+        "Phantom Game Cartridge"
+      ]
+    },
+    {
+      "id": "mistique",
+      "name": "Mistique",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Crimson Tempter",
+        "Evil Bloom Essence"
+      ],
+      "skillMaterials": [
+        "Shooter Game Cartridge",
+        "Barrage Game Cartridge",
+        "Demon Bee Game Cartridge"
+      ]
+    },
+    {
+      "id": "nanoha",
+      "name": "Nanoha",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Wrath Beauty",
+        "Wind Essence"
+      ],
+      "skillMaterials": [
+        "Tapping Game Cartridge",
+        "Rhythm Game Cartridge",
+        "Magic Sound Game Cartridge"
+      ]
+    },
+    {
+      "id": "nazuna",
+      "name": "Nazuna",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Forest Elf Fang",
+        "Forest Elf Essence"
+      ],
+      "skillMaterials": [
+        "Shooter Game Cartridge",
+        "Barrage Game Cartridge",
+        "Demon Bee Game Cartridge"
+      ]
+    },
+    {
+      "id": "noya",
+      "name": "Noya",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Wrath Beauty",
+        "Wind Essence"
+      ],
+      "skillMaterials": [
+        "Tapping Game Cartridge",
+        "Rhythm Game Cartridge",
+        "Magic Sound Game Cartridge"
+      ]
+    },
+    {
+      "id": "ridge",
+      "name": "Ridge",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "faint_wick",
+              "name": "Faint Wick",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "lumen_essence",
+              "name": "Lumen Essence",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "eternal_gloom_core",
+              "name": "Eternal Gloom Core",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Faint",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Forest Elf Fang",
+        "Forest Elf Essence"
+      ],
+      "skillMaterials": [
+        "Tapping Game Cartridge",
+        "Rhythm Game Cartridge",
+        "Magic Sound Game Cartridge"
+      ]
+    },
+    {
+      "id": "shimiao",
+      "name": "Shimiao",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "backstage_ragged_hat",
+              "name": "Backstage Ragged Hat",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "spotlight_bowler",
+              "name": "Spotlight Bowler",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "exeunt_bowler",
+              "name": "Exeunt Bowler",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Backstage",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Nightlit Haven",
+        "Tidal Essence"
+      ],
+      "skillMaterials": [
+        "Shooter Game Cartridge",
+        "Barrage Game Cartridge",
+        "Demon Bee Game Cartridge"
+      ]
+    },
+    {
+      "id": "teresa",
+      "name": "Teresa",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Nightlit Haven",
+        "Tidal Essence"
+      ],
+      "skillMaterials": [
+        "Tapping Game Cartridge",
+        "Rhythm Game Cartridge",
+        "Magic Sound Game Cartridge"
+      ]
+    },
+    {
+      "id": "tilia",
+      "name": "Tilia",
+      "quality": "4",
+      "image": "assets/characters/head.png",
+      "tiers": [
+        {
+          "level": 10,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 7900,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 5,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 19800,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 30,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 10,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 44400,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 40,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 15,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 25,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 88000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 50,
+          "materials": [
+            {
+              "id": "count's_rewards",
+              "name": "Count's Rewards",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Basic",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 40,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 146100,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 60,
+          "materials": [
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 20,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 200000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 70,
+          "materials": [
+            {
+              "id": "count's_cellaring",
+              "name": "Count's Cellaring",
+              "count": 75,
+              "type": "Ascension Material",
+              "rarity": "Intermediate",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 30,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 250000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        },
+        {
+          "level": 80,
+          "materials": [
+            {
+              "id": "count's_gift",
+              "name": "Count's Gift",
+              "count": 50,
+              "type": "Ascension Material",
+              "rarity": "Advanced",
+              "group": "Count's",
+              "image": "assets/materials/card.png"
+            },
+            {
+              "id": "dorra",
+              "name": "Dorra",
+              "count": 300000,
+              "type": "Currency",
+              "rarity": "Basic",
+              "image": "assets/materials/card.png"
+            }
+          ]
+        }
+      ],
+      "bossMaterials": [
+        "Radiant Feather Crown",
+        "Radiant Crown Essence"
+      ],
+      "skillMaterials": [
+        "Tapping Game Cartridge",
+        "Rhythm Game Cartridge",
+        "Magic Sound Game Cartridge"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "id": "dorra",
+      "name": "Dorra",
+      "type": "Currency",
+      "rarity": "Basic",
+      "image": "assets/materials/card.png"
+    },
+    {
+      "id": "training_chip",
+      "name": "Training Chip",
+      "type": "Experience Material",
+      "rarity": "Basic",
+      "xpValue": 1000,
+      "image": "assets/materials/card.png"
+    },
+    {
+      "id": "combat_manual",
+      "name": "Combat Manual",
+      "type": "Experience Material",
+      "rarity": "Intermediate",
+      "xpValue": 5000,
+      "image": "assets/materials/card.png"
+    },
+    {
+      "id": "expert_log",
+      "name": "Expert Log",
+      "type": "Experience Material",
+      "rarity": "Advanced",
+      "xpValue": 20000,
+      "image": "assets/materials/card.png"
+    }
+  ]
+}
