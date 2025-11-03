@@ -158,7 +158,6 @@
       font-weight: 700;
     }
 
-    /* materials grid shows only icons & counts, no name text inline */
     .materials-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
@@ -375,7 +374,6 @@
       text-align: center;
     }
 
-    /* modal smaller: max-width 700px */
     .modal {
       display: none;
       position: fixed;
@@ -407,7 +405,19 @@
       background: var(--panel-dark);
     }
 
-    .modal-panel-list,
+    .modal-panel-list {
+      width: 96%;
+      max-height: 86vh;
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      overflow: auto;
+      background: var(--panel-dark);
+    }
+    
     .modal-panel-details {
       width: 96%;
       max-width: 700px;
@@ -641,15 +651,15 @@
           <select id="sortCharactersSelect"
             style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:rgba(0,0,0,0.06);color:inherit">
             <option value="default">Default</option>
-            <option value="name">Name (A→Z)</option>
+            <option value="name">Name</option>
             <option value="element">Element</option>
-            <option value="quality">Rarity (High→Low)</option>
+            <option value="quality">Rarity</option>
             <option value="position">Position</option>
             <option value="faction">Faction</option>
           </select>
         </label>
 
-        <!-- Existing filters container (keeps earlier filters) -->
+        <!-- Existing filters container -->
         <div id="listFilters" class="modal-controls" style="margin-left:auto"></div>
       </div>
 
@@ -657,7 +667,7 @@
     </div>
   </div>
 
-  <!-- Details Modal (max-width 700px now) -->
+  <!-- Details Modal -->
   <div id="detailsModal" class="modal" aria-hidden="true">
     <div class="modal-panel-details panel" role="dialog" aria-modal="true">
       <div style="display:flex;align-items:center;gap:12px">
@@ -858,7 +868,7 @@
       "association_contribution_certificate": "assets/materials/association_contribution_certificate.png",
       "grace_voucher": "assets/materials/grace_voucher.png",
 
-      // Gifts (assets/gifts)
+      // Gifts 
       "love_candle": "assets/gifts/love_candle.png",
       "blazing_wings": "assets/gifts/blazing_wings.png",
       "card_photo_capturer": "assets/gifts/card_photo_capturer.png",
@@ -1146,12 +1156,11 @@
 
     /* ---------------------------
        Category detection & sorting fixes:
-       Ensure ascension materials are detected as Ascension (priority)
+       Ensure ascension materials are detected as Ascension
        Ensure Weekly boss materials are detected as Boss
     ----------------------------*/
     function detectCategoryForName(name) {
       if (!name) return 'Misc';
-      // priority: if name appears in any ascension arrays -> Ascension
       for (const cid in characterAscensionMaterials) {
         const arr = characterAscensionMaterials[cid] || [];
         if (arr.includes(name)) return 'Ascension';
@@ -1265,10 +1274,9 @@
       if (mats.adv > 0) { const nm = skillList[2] || 'Magic Sound Game Cartridge'; out[nm] = { name: nm, image: ensureImage(nm), type: 'Skill', rarity: 'Advanced', count: mats.adv }; }
       if (mats.chess > 0) { const nm = 'Chess Piece of Skill'; out[nm] = { name: nm, image: ensureImage(nm), type: 'Skill', rarity: 'Misc', count: mats.chess }; }
       if (mats.boss > 0) {
-        // For boss-type skill materials use weekly boss mapping (characterBossMaterials holds the weekly boss drops)
+
         const bossArr = characterBossMaterials[charId] || [];
-        // bossArr typically contains the two weekly boss drops
-        // add mats.boss count to the first boss item as representative
+
         if (bossArr.length > 0) {
           const bossName = bossArr[0];
           if (!out[bossName]) out[bossName] = { name: bossName, image: ensureImage(bossName), type: 'Boss', rarity: 'Boss', count: mats.boss };
@@ -1458,7 +1466,7 @@
         if (bossArr.length) {
           bossArr.forEach(bm => {
             const mm = el('div', { class: 'char-material', 'data-tooltip': bm.name || '' });
-            mm.innerHTML = `<img src="${bm.image}" alt="${bm.name}"><div style="font-size:11px" class="small muted">Boss</div>`;
+            mm.innerHTML = `<img src="${bm.image}" alt="${bm.name}">`;
             matWrap.appendChild(mm);
           });
         }
@@ -1496,43 +1504,83 @@
       });
     }
 
-    function populateModalCharacters() {
-      const saved = loadSaved();
-      const q = (listSearch.value || '').toLowerCase();
-      const fe = $('#filterElement')?.value || '';
-      const fq = $('#filterQuality')?.value || '';
-      const fp = $('#filterPosition')?.value || '';
-      const ff = $('#filterFaction')?.value || '';
-      const fs = $('#filterStyle')?.value || '';
+  function populateModalCharacters() {
+    const saved = loadSaved();
+    const q = (listSearch.value || '').toLowerCase();
+    const fe = $('#filterElement')?.value || '';
+    const fq = $('#filterQuality')?.value || '';
+    const fp = $('#filterPosition')?.value || '';
+    const ff = $('#filterFaction')?.value || '';
+    const fs = $('#filterStyle')?.value || '';
 
-      modalTiles.innerHTML = '';
-      let list = characters.map(c => ({ ...c, savedCfg: saved.find(s => s.charId === c.id) }));
-      list = list.filter(c => {
-        if (q && !(c.name.toLowerCase().includes(q) || (c.element || '').toLowerCase().includes(q) || (c.id || '').toLowerCase().includes(q))) return false;
-        if (fe && c.element !== fe) return false;
-        if (fq && c.quality !== fq) return false;
-        if (fp && c.position !== fp) return false;
-        if (ff && c.faction !== ff) return false;
-        if (fs && c.style !== fs) return false;
-        return true;
+    // Get the selected sorting option
+    const sortBy = $('#sortCharactersSelect')?.value || 'default';
+
+    modalTiles.innerHTML = '';
+    let list = characters.map(c => ({ ...c, savedCfg: saved.find(s => s.charId === c.id) }));
+
+    // Filter characters
+    list = list.filter(c => {
+      if (q && !(c.name.toLowerCase().includes(q) || (c.element || '').toLowerCase().includes(q) || (c.id || '').toLowerCase().includes(q))) return false;
+      if (fe && c.element !== fe) return false;
+      if (fq && c.quality !== fq) return false;
+      if (fp && c.position !== fp) return false;
+      if (ff && c.faction !== ff) return false;
+      if (fs && c.style !== fs) return false;
+      return true;
+    });
+
+    // SORTING LOGIC
+    list.sort((a, b) => {
+      switch (sortBy) {
+        case 'name':
+          return a.name.localeCompare(b.name);
+        case 'element':
+          return (a.element || '').localeCompare(b.element || '');
+        case 'quality':
+          // Sort by quality (rarity) - 5 stars first, then 4 stars
+          return (b.quality || '').localeCompare(a.quality || '');
+        case 'position':
+          return (a.position || '').localeCompare(b.position || '');
+        case 'faction':
+          return (a.faction || '').localeCompare(b.faction || '');
+        case 'default':
+        default:
+          // Default sorting
+          return 0;
+      }
+    });
+
+    list.forEach(c => {
+      const tile = el('div', { class: 'tile' });
+      const already = saved.find(s => s.charId === c.id && !s.completed);
+      if (already) tile.classList.add('disabled');
+      tile.innerHTML = `<img src="${c.image}" alt="${c.name}"><div style="font-weight:800">${c.name}</div><div class="small muted">${c.element} • ${c.quality}★</div>`;
+      tile.addEventListener('click', () => {
+        if (tile.classList.contains('disabled')) return;
+        listModal.classList.remove('open');
+        listModal.setAttribute('aria-hidden', 'true');
+        openDetailsForNew(c.id);
       });
+      modalTiles.appendChild(tile);
+    });
+  }
 
-      list.forEach(c => {
-        const tile = el('div', { class: 'tile' });
-        const already = saved.find(s => s.charId === c.id && !s.completed);
-        if (already) tile.classList.add('disabled');
-        tile.innerHTML = `<img src="${c.image}" alt="${c.name}"><div style="font-weight:800">${c.name}</div><div class="small muted">${c.element} • ${c.quality}★</div>`;
-        tile.addEventListener('click', () => {
-          if (tile.classList.contains('disabled')) return;
-          listModal.classList.remove('open'); listModal.setAttribute('aria-hidden', 'true');
-          openDetailsForNew(c.id);
-        });
-        modalTiles.appendChild(tile);
-      });
-    }
+  $('#addCharacterBtn').addEventListener('click', () => {
+    createListFilters();
+    populateModalCharacters();
+    listModal.classList.add('open');
+    listModal.setAttribute('aria-hidden', 'false');
 
-    $('#addCharacterBtn').addEventListener('click', () => { createListFilters(); populateModalCharacters(); listModal.classList.add('open'); listModal.setAttribute('aria-hidden', 'false'); });
-    closeListModal.addEventListener('click', () => listModal.classList.remove('open'));
+    // Re-attach event listeners for filters to ensure they work
+    FILTERS_FOR_LIST.forEach(f => {
+      const filterEl = $(`#${f.id}`);
+      if (filterEl) {
+        filterEl.addEventListener('change', populateModalCharacters);
+      }
+    });
+  });
+  closeListModal.addEventListener('click', () => listModal.classList.remove('open'));
 
     /* ---------------------------
        Details modal behavior & validation
@@ -1800,7 +1848,8 @@
       reader.onload = ev => {
         try {
           const parsed = JSON.parse(ev.target.result);
-          if (typeof parsed !== 'object' || (!parsed.counts && parsed.counts !== {})) {
+          const hasCounts = parsed && typeof parsed.counts === 'object' && parsed.counts !== null && !Array.isArray(parsed.counts);
+          if (typeof parsed !== 'object' || parsed === null || !hasCounts) {
             if (!confirm('Imported file does not look like an inventory file. Continue and save anyway?')) return;
           }
           saveInventory(parsed);
@@ -1868,18 +1917,35 @@
     /* ---------------------------
        Initialization & wiring
     ----------------------------*/
-    btnTotal.addEventListener('click', () => setMaterialsViewMode('total'));
-    btnRemaining.addEventListener('click', () => setMaterialsViewMode('remaining'));
+      btnTotal.addEventListener('click', () => setMaterialsViewMode('total'));
+      btnRemaining.addEventListener('click', () => setMaterialsViewMode('remaining'));
 
-    (function init() {
-      masterMaterials = buildMasterMaterialsList();
-      createListFilters();
-      populateModalCharacters();
-      const mode = localStorage.getItem(VIEW_MODE_KEY) || 'total';
-      updateModeButtons(mode);
-      renderMaterials(mode);
-      renderSavedCharacters();
-    })();
+      (function init() {
+        masterMaterials = buildMasterMaterialsList();
+        createListFilters();
+        populateModalCharacters();
+        const mode = localStorage.getItem(VIEW_MODE_KEY) || 'total';
+        updateModeButtons(mode);
+        renderMaterials(mode);
+        renderSavedCharacters();
+
+        // Ensure sort dropdown event listener is properly set up
+        const sortSelect = $('#sortCharactersSelect');
+        if (sortSelect) {
+          sortSelect.addEventListener('change', populateModalCharacters);
+        }
+
+        // Also add event listeners for search and filter changes to trigger re-sorting
+        listSearch.addEventListener('input', populateModalCharacters);
+
+        // Add event listeners for all filter dropdowns
+        FILTERS_FOR_LIST.forEach(f => {
+          const filterEl = $(`#${f.id}`);
+          if (filterEl) {
+            filterEl.addEventListener('change', populateModalCharacters);
+          }
+        });
+      })();
   </script>
 </body>
 
