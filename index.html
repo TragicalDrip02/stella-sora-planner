@@ -608,7 +608,7 @@
 
       <div class="spacer">
         <button id="themeToggle" class="nav-button">🌙</button>
-        <button id="copyBtn" class="nav-button">Copy Summary</button>
+        <button id="importBtn" class="nav-button">Import JSON</button>
         <button id="exportBtn" class="nav-button">Export JSON</button>
       </div>
     </div>
@@ -796,7 +796,17 @@
     ----------------------------*/
     const $ = (s, ctx = document) => ctx.querySelector(s);
     const $$ = (s, ctx = document) => Array.from((ctx || document).querySelectorAll(s));
-    const el = (t, a = {}, txt = '') => { const n = document.createElement(t); for (const k in a) { if (k.startsWith('on') && typeof a[k] === 'function') n.addEventListener(k.slice(2), a[k]); else n.setAttribute(k, a[k]); } if (txt) n.textContent = txt; return n; };
+    const el = (t, a = {}, txt = '') => {
+      const n = document.createElement(t);
+      for (const k in a) {
+        if (k.startsWith('on') && typeof a[k] === 'function')
+          n.addEventListener(k.slice(2), a[k]);
+        else
+          n.setAttribute(k, a[k]);
+      }
+      if (txt) n.textContent = txt;
+      return n;
+    };
 
     /* ---------------------------
        Per-material explicit image paths
@@ -892,7 +902,6 @@
 
     /* ---------------------------
        Material category map
-       Used for folder heuristics and category detection.
     ----------------------------*/
     const MATERIAL_CATEGORY_MAP = {
       "Trekker's Guide": "Experience", "Novice's Internship Journal": "Experience", "Senior's Travel Journal": "Experience", "Trekker's Handwritten Encyclopedia": "Experience",
@@ -931,17 +940,14 @@
       if (!materialName) return 'assets/materials/default.png';
       const key = safeKey(materialName);
 
-      // First check explicit paths
       if (MATERIAL_IMAGE_PATHS[key]) return MATERIAL_IMAGE_PATHS[key];
 
-      // Then use category-based mapping
       const map = MATERIAL_CATEGORY_MAP[materialName] || '';
       let folder = 'materials';
 
       if (map === 'Gifts') folder = 'gifts';
       else if (map === 'Disc') folder = 'disc';
       else if (map === 'Currency') folder = 'currencies';
-      // materials folder is already the default
 
       return `assets/${folder}/${key}.png`;
     }
@@ -950,25 +956,19 @@
       if (!p) return ASSET_BASE + 'assets/materials/default.png';
       if (p.startsWith('http') || p.startsWith('data:')) return p;
 
-      // If the path is already a full path from getMaterialImagePath, use it as-is
       if (p.includes('/')) {
         return ASSET_BASE + p;
       }
 
-      // For character images that already have full paths
       if (p.includes('characters/')) {
         return ASSET_BASE + p;
       }
 
-      // For other cases, get the proper material path
       return ASSET_BASE + getMaterialImagePath(p);
     }
 
-    //
-
     /* ---------------------------
        Character & material data
-       Ascension arrays reflect ascension materials
     ----------------------------*/
     const manifestCharacters = [
       { id: "amber", name: "Amber", position: "Vanguard", element: "Ignis", quality: "4", faction: "New Star Guild", style: "Collector", image: "assets/characters/amber.png" },
@@ -998,7 +998,6 @@
       { id: "tilia", name: "Tilia", position: "Support", element: "Lux", quality: "4", faction: "Imperial Guard", style: "Steady", image: "assets/characters/tilia.png" }
     ];
 
-    /* Ascension materials per character*/
     const characterAscensionMaterials = {
       amber: ["Count's Rewards", "Count's Cellaring", "Count's Gift"],
       ann: ["Backstage Ragged Hat", "Spotlight Bowler", "Exeunt Bowler"],
@@ -1027,12 +1026,8 @@
       tilia: ["Count's Rewards", "Count's Cellaring", "Count's Gift"]
     };
 
-    /* Disc ascension per character  */
-    const characterDiscAscensionMaterials = {
+    const characterDiscAscensionMaterials = {};
 
-    };
-
-    /* Skill cartridges (used for skill material counts) */
     const characterSkillCartridges = {
       amber: ["Shooter Game Cartridge", "Barrage Game Cartridge", "Demon Bee Game Cartridge"],
       ann: ["Shooter Game Cartridge", "Barrage Game Cartridge", "Demon Bee Game Cartridge"],
@@ -1061,7 +1056,6 @@
       tilia: ["Tapping Game Cartridge", "Rhythm Game Cartridge", "Magic Sound Game Cartridge"]
     };
 
-    /* Weekly boss materials for skills */
     const WEEKLY_BOSS_GROUPS = {
       "Garden of Parasite": ["Crimson Tempter", "Evil Bloom Essence"],
       "Spirit of Brutality": ["Forest Elf Fang", "Forest Elf Essence"],
@@ -1146,7 +1140,6 @@
       { from: 7, to: 8, basic: 0, inter: 90, adv: 34, boss: 2, chess: 323 }
     ];
 
-    /* EXP material breakdown values */
     const EXP_MATERIALS = [
       { name: "Trekker's Handwritten Encyclopedia", value: 20000 },
       { name: "Senior's Travel Journal", value: 10000 },
@@ -1159,7 +1152,10 @@
       let remaining = Number(expAmount) || 0;
       for (const mat of EXP_MATERIALS) {
         const count = Math.floor(remaining / mat.value);
-        if (count > 0) { result[mat.name] = (result[mat.name] || 0) + count; remaining -= count * mat.value; }
+        if (count > 0) {
+          result[mat.name] = (result[mat.name] || 0) + count;
+          remaining -= count * mat.value;
+        }
       }
       return result;
     }
@@ -1169,17 +1165,30 @@
     ----------------------------*/
     function calculateSkillMaterials(fromLvl, toLvl) {
       const r = { basic: 0, inter: 0, adv: 0, boss: 0, chess: 0 };
-      for (const s of skillMaterialTable) if (s.to > fromLvl && s.to <= toLvl) { r.basic += s.basic || 0; r.inter += s.inter || 0; r.adv += s.adv || 0; r.boss += s.boss || 0; r.chess += s.chess || 0; }
+      for (const s of skillMaterialTable) {
+        if (s.to > fromLvl && s.to <= toLvl) {
+          r.basic += s.basic || 0;
+          r.inter += s.inter || 0;
+          r.adv += s.adv || 0;
+          r.boss += s.boss || 0;
+          r.chess += s.chess || 0;
+        }
+      }
       return r;
     }
+
     function calculateExperienceNeeded(current, desired) {
       let totalExp = 0, totalDorra = 0;
       if (Number(desired) <= Number(current)) return { totalExp: 0, totalDorra: 0 };
-      for (const row of experienceTable) if (row.from >= Number(current) && row.to <= Number(desired)) { totalExp += (row.exp || 0); totalDorra += (row.dorra || 0); }
+      for (const row of experienceTable) {
+        if (row.from >= Number(current) && row.to <= Number(desired)) {
+          totalExp += (row.exp || 0);
+          totalDorra += (row.dorra || 0);
+        }
+      }
       return { totalExp, totalDorra };
     }
 
-    /* Build characters with tier materials */
     function buildCharacterWithTiers(ch) {
       const asc = characterAscensionMaterials[ch.id] || ['AscA', 'AscB', 'AscC'];
       const skill = characterSkillCartridges[ch.id] || [];
@@ -1193,12 +1202,11 @@
       });
       return { ...ch, tiers, ascensionMaterials: asc, skillMaterials: skill };
     }
+
     const characters = manifestCharacters.map(buildCharacterWithTiers);
 
     /* ---------------------------
-       Category detection & sorting fixes:
-       Ensure ascension materials are detected as Ascension
-       Ensure Weekly boss materials are detected as Boss
+       Category detection & sorting
     ----------------------------*/
     function detectCategoryForName(name) {
       if (!name) return 'Misc';
@@ -1206,16 +1214,13 @@
         const arr = characterAscensionMaterials[cid] || [];
         if (arr.includes(name)) return 'Ascension';
       }
-      // check disc ascension lists if needed
       for (const cid in characterDiscAscensionMaterials) {
         const arr = characterDiscAscensionMaterials[cid] || [];
         if (arr.includes(name)) return 'Ascension';
       }
-      // weekly boss detection
       for (const group in WEEKLY_BOSS_GROUPS) {
         if (WEEKLY_BOSS_GROUPS[group].includes(name)) return 'Boss';
       }
-      // explicit map
       if (MATERIAL_CATEGORY_MAP[name]) {
         const map = MATERIAL_CATEGORY_MAP[name];
         if (map === 'Currency') return 'Dorra';
@@ -1233,7 +1238,15 @@
       if (/exp|experience|trekker/i.test(name)) return 'Experience';
       return 'Misc';
     }
-    function rarityValue(r) { if (!r) return 2; const x = (r || '').toString().toLowerCase(); if (x.includes('basic')) return 1; if (x.includes('intermediate')) return 2; if (x.includes('advanced')) return 3; return 2; }
+
+    function rarityValue(r) {
+      if (!r) return 2;
+      const x = (r || '').toString().toLowerCase();
+      if (x.includes('basic')) return 1;
+      if (x.includes('intermediate')) return 2;
+      if (x.includes('advanced')) return 3;
+      return 2;
+    }
 
     function ascensionGroupIndex(itemName) {
       for (const g in characterAscensionMaterials) {
@@ -1243,6 +1256,7 @@
       }
       return { group: null, idx: 9999 };
     }
+
     function skillGroupIndex(itemName) {
       for (const g in characterSkillCartridges) {
         const arr = characterSkillCartridges[g];
@@ -1251,6 +1265,7 @@
       }
       return { group: null, idx: 9999 };
     }
+
     function bossGroupIndex(itemName) {
       for (const g in characterBossMaterials) {
         const arr = characterBossMaterials[g];
@@ -1268,16 +1283,12 @@
       const ca = detectCategoryForName(an);
       const cb = detectCategoryForName(bn);
 
-      // First sort by category
       if (ca !== cb) return (ORDER_MAP[ca] || 999) - (ORDER_MAP[cb] || 999);
 
-      // Within same category, sort by rarity (lowest to highest)
-      const rarityOrder = { 'Basic': 1, 'Intermediate': 2, 'Advanced': 3, 'Boss': 4, 'Misc': 5 };
       const ra = rarityValue(a.rarity || '');
       const rb = rarityValue(b.rarity || '');
       if (ra !== rb) return ra - rb;
 
-      // If same rarity, sort by source/group
       if (ca === 'Ascension') {
         const aa = ascensionGroupIndex(an), bb = ascensionGroupIndex(bn);
         if (aa.group !== bb.group) return (aa.group || '').localeCompare(bb.group || '');
@@ -1294,768 +1305,921 @@
         if (ba.idx !== bb.idx) return ba.idx - bb.idx;
       }
 
-      // Finally sort by name
       return an.localeCompare(bn);
-    }
-
-    // Update the rarityValue function to be more comprehensive:
-    function rarityValue(r) {
-      if (!r) return 2;
-      const x = (r || '').toString().toLowerCase();
-      if (x.includes('basic')) return 1;
-      if (x.includes('intermediate')) return 2;
-      if (x.includes('advanced')) return 3;
-      if (x.includes('boss')) return 4;
-      return 2; // default to intermediate
     }
 
     /* ---------------------------
        Material calculations
-       - Ascension materials come only from characterAscensionMaterials via tiers
-       - Skill materials from skillMaterialTable + cartridges
-       - Weekly boss materials for skill-level are derived from characterBossMaterials
-       - Experience breakdown into materials
     ----------------------------*/
     function calcAscensionMaterialsForChar(charId, currentLevel, desiredLevel) {
-      const ch = characters.find(c => c.id === charId); if (!ch) return {};
+      const ch = characters.find(c => c.id === charId);
+      if (!ch) return {};
       const tiers = ch.tiers.filter(t => t.level > currentLevel && t.level <= desiredLevel);
       const out = {};
-      tiers.forEach(t => t.materials.forEach(m => { if (!out[m.name]) out[m.name] = { ...m }; else out[m.name].count += m.count; }));
+      tiers.forEach(t => t.materials.forEach(m => {
+        if (!out[m.name]) out[m.name] = { ...m };
+        else out[m.name].count += m.count;
+      }));
       return out;
     }
 
     function calcSkillMaterialsForChar(charId, curSkill, desSkill) {
-      const diff = Math.max(0, Number(desSkill) - Number(curSkill)); if (diff <= 0) return {};
-      // compute materials by skill increments using skillMaterialTable
+      const diff = Math.max(0, Number(desSkill) - Number(curSkill));
+      if (diff <= 0) return {};
+
       const mats = calculateSkillMaterials(Number(curSkill), Number(desSkill));
       const skillList = characterSkillCartridges[charId] || [];
       const out = {};
-      if (mats.basic > 0) { const nm = skillList[0] || 'Tapping Game Cartridge'; out[nm] = { name: nm, image: ensureImage(nm), type: 'Skill', rarity: 'Basic', count: mats.basic }; }
-      if (mats.inter > 0) { const nm = skillList[1] || 'Rhythm Game Cartridge'; out[nm] = { name: nm, image: ensureImage(nm), type: 'Skill', rarity: 'Intermediate', count: mats.inter }; }
-      if (mats.adv > 0) { const nm = skillList[2] || 'Magic Sound Game Cartridge'; out[nm] = { name: nm, image: ensureImage(nm), type: 'Skill', rarity: 'Advanced', count: mats.adv }; }
-      if (mats.chess > 0) { const nm = 'Chess Piece of Skill'; out[nm] = { name: nm, image: ensureImage(nm), type: 'Skill', rarity: 'Misc', count: mats.chess }; }
+
+      if (mats.basic > 0) {
+        const nm = skillList[0] || 'Tapping Game Cartridge';
+        out[nm] = { name: nm, image: ensureImage(nm), type: 'Skill', rarity: 'Basic', count: mats.basic };
+      }
+      if (mats.inter > 0) {
+        const nm = skillList[1] || 'Rhythm Game Cartridge';
+        out[nm] = { name: nm, image: ensureImage(nm), type: 'Skill', rarity: 'Intermediate', count: mats.inter };
+      }
+      if (mats.adv > 0) {
+        const nm = skillList[2] || 'Magic Sound Game Cartridge';
+        out[nm] = { name: nm, image: ensureImage(nm), type: 'Skill', rarity: 'Advanced', count: mats.adv };
+      }
+      if (mats.chess > 0) {
+        const nm = 'Chess Piece of Skill';
+        out[nm] = { name: nm, image: ensureImage(nm), type: 'Skill', rarity: 'Misc', count: mats.chess };
+      }
       if (mats.boss > 0) {
-
-
-        // Only show boss materials if they're actually needed for the current skill levels
-        const bossArr = (characterBossMaterials[ch.id] || []);
-        if (bossArr.length) {
-          bossArr.forEach(bossName => {
-            // Check if this boss material is actually needed for any of the skills
-            const atkNeeds = calcSkillMaterialsForChar(cfg.charId, cfg.atkCur, cfg.atkDes)[bossName];
-            const mainNeeds = calcSkillMaterialsForChar(cfg.charId, cfg.mainCur, cfg.mainDes)[bossName];
-            const supNeeds = calcSkillMaterialsForChar(cfg.charId, cfg.supCur, cfg.supDes)[bossName];
-            const ultNeeds = calcSkillMaterialsForChar(cfg.charId, cfg.ultCur, cfg.ultDes)[bossName];
-
-            // Only show if at least one skill needs this boss material
-            if (atkNeeds || mainNeeds || supNeeds || ultNeeds) {
-              const mm = el('div', { class: 'char-material', 'data-tooltip': bossName || '' });
-              mm.innerHTML = `<img src="${ensureImage(bossName)}" alt="${bossName}">`;
-              matWrap.appendChild(mm);
-            }
-          });
+        const bossList = characterBossMaterials[charId] || [];
+        if (bossList.length > 0) {
+          out[bossList[0]] = { name: bossList[0], image: ensureImage(bossList[0]), type: 'Boss', count: mats.boss };
         }
-        return out;
-      }}
+      }
+      return out;
+    }
 
-      function aggregateMaps(listOfMaps) {
-        const out = {};
-        listOfMaps.forEach(m => { for (const k in m) { if (!out[k]) out[k] = { ...m[k] }; else out[k].count += m[k].count; } });
-        return out;
+    function aggregateMaps(listOfMaps) {
+      const out = {};
+      listOfMaps.forEach(m => {
+        for (const k in m) {
+          if (!out[k]) out[k] = { ...m[k] };
+          else out[k].count += m[k].count;
+        }
+      });
+      return out;
+    }
+
+    function computeMaterialsForConfig(cfg) {
+      const asc = calcAscensionMaterialsForChar(cfg.charId, cfg.currentLevel, cfg.desiredLevel);
+      const atk = calcSkillMaterialsForChar(cfg.charId, cfg.atkCur, cfg.atkDes);
+      const main = calcSkillMaterialsForChar(cfg.charId, cfg.mainCur, cfg.mainDes);
+      const sup = calcSkillMaterialsForChar(cfg.charId, cfg.supCur, cfg.supDes);
+      const ult = calcSkillMaterialsForChar(cfg.charId, cfg.ultCur, cfg.ultDes);
+      const expCalc = calculateExperienceNeeded(cfg.currentLevel, cfg.desiredLevel);
+
+      const expEntries = {};
+      if (expCalc.totalExp > 0) {
+        const breakdown = expToMaterials(expCalc.totalExp);
+        for (const matName in breakdown) {
+          expEntries[matName] = { name: matName, image: ensureImage(matName), type: 'Experience', count: breakdown[matName] };
+        }
       }
 
-      /*
-       computeMaterialsForConfig returns array of material objects for a specific saved config
-       Experience is split into EXP_MATERIALS entries;
-      */
-      function computeMaterialsForConfig(cfg) {
+      const dorraMap = {};
+      if (expCalc.totalDorra > 0) dorraMap['Dorra'] = { name: 'Dorra', image: ensureImage('Dorra'), type: 'Currency', count: expCalc.totalDorra };
+
+      return Object.values(aggregateMaps([asc, atk, main, sup, ult, expEntries, dorraMap]));
+    }
+
+    function computeCombinedTotals() {
+      const saved = loadSaved().filter(cfg => !cfg.ignored && !cfg.completed);
+      const maps = saved.map(cfg => {
         const asc = calcAscensionMaterialsForChar(cfg.charId, cfg.currentLevel, cfg.desiredLevel);
         const atk = calcSkillMaterialsForChar(cfg.charId, cfg.atkCur, cfg.atkDes);
         const main = calcSkillMaterialsForChar(cfg.charId, cfg.mainCur, cfg.mainDes);
         const sup = calcSkillMaterialsForChar(cfg.charId, cfg.supCur, cfg.supDes);
         const ult = calcSkillMaterialsForChar(cfg.charId, cfg.ultCur, cfg.ultDes);
         const expCalc = calculateExperienceNeeded(cfg.currentLevel, cfg.desiredLevel);
-
         const expEntries = {};
         if (expCalc.totalExp > 0) {
           const breakdown = expToMaterials(expCalc.totalExp);
-          for (const matName in breakdown) {
-            expEntries[matName] = { name: matName, image: ensureImage(matName), type: 'Experience', count: breakdown[matName] };
-          }
+          for (const matName in breakdown) expEntries[matName] = { name: matName, image: ensureImage(matName), type: 'Experience', count: breakdown[matName] };
         }
-
         const dorraMap = {};
         if (expCalc.totalDorra > 0) dorraMap['Dorra'] = { name: 'Dorra', image: ensureImage('Dorra'), type: 'Currency', count: expCalc.totalDorra };
+        return aggregateMaps([asc, atk, main, sup, ult, expEntries, dorraMap]);
+      });
+      const merged = {};
+      maps.forEach(m => {
+        for (const k in m) {
+          if (!merged[k]) merged[k] = { ...m[k] };
+          else merged[k].count += m[k].count;
+        }
+      });
+      return Object.values(merged);
+    }
 
-        return Object.values(aggregateMaps([asc, atk, main, sup, ult, expEntries, dorraMap]));
+    /* ---------------------------
+       Storage helpers
+    ----------------------------*/
+    const STORAGE_KEY = 'stella_final_configs_v2';
+    const INVENTORY_KEY = 'STELLA_INVENTORY_DATA';
+    const THEME_KEY = 'STELLA_THEME_MODE';
+    const VIEW_MODE_KEY = 'STELLA_MATERIALS_VIEW_MODE';
+
+    const loadSaved = () => JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const saveAll = arr => localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+    const addOrUpdate = cfg => {
+      const arr = loadSaved();
+      const idx = arr.findIndex(x => x.id === cfg.id);
+      if (idx >= 0) arr[idx] = cfg;
+      else arr.push(cfg);
+      saveAll(arr);
+    }
+    const removeConfig = id => saveAll(loadSaved().filter(x => x.id !== id));
+    const loadInventory = () => {
+      try {
+        return JSON.parse(localStorage.getItem(INVENTORY_KEY) || '{}');
+      } catch (e) {
+        return {};
+      }
+    };
+    const saveInventory = obj => localStorage.setItem(INVENTORY_KEY, JSON.stringify(obj || {}));
+
+    /* ---------------------------
+       Render materials summary
+    ----------------------------*/
+    const materialsGrid = $('#materialsGrid');
+    const btnTotal = $('#btnTotalNeeded');
+    const btnRemaining = $('#btnRemainingNeeded');
+
+    function getMaterialsViewMode() {
+      return localStorage.getItem(VIEW_MODE_KEY) || 'total';
+    }
+
+    function updateModeButtons(mode) {
+      btnTotal.classList.toggle('active', mode === 'total');
+      btnRemaining.classList.toggle('active', mode === 'remaining');
+    }
+
+    function setMaterialsViewMode(m) {
+      localStorage.setItem(VIEW_MODE_KEY, m);
+      updateModeButtons(m);
+      renderMaterials(m);
+    }
+
+    function renderMaterials(mode = 'total') {
+      const arr = computeCombinedTotals();
+      arr.sort(materialSort);
+      const inv = loadInventory();
+      materialsGrid.innerHTML = '';
+
+      if (!arr.length) {
+        materialsGrid.innerHTML = '<div class="small muted">Add characters to see totals.</div>';
+        return;
       }
 
-      function computeCombinedTotals() {
-        const saved = loadSaved().filter(cfg => !cfg.ignored && !cfg.completed);
-        const maps = saved.map(cfg => {
-          const asc = calcAscensionMaterialsForChar(cfg.charId, cfg.currentLevel, cfg.desiredLevel);
-          const atk = calcSkillMaterialsForChar(cfg.charId, cfg.atkCur, cfg.atkDes);
-          const main = calcSkillMaterialsForChar(cfg.charId, cfg.mainCur, cfg.mainDes);
-          const sup = calcSkillMaterialsForChar(cfg.charId, cfg.supCur, cfg.supDes);
-          const ult = calcSkillMaterialsForChar(cfg.charId, cfg.ultCur, cfg.ultDes);
-          const expCalc = calculateExperienceNeeded(cfg.currentLevel, cfg.desiredLevel);
-          const expEntries = {};
-          if (expCalc.totalExp > 0) {
-            const breakdown = expToMaterials(expCalc.totalExp);
-            for (const matName in breakdown) expEntries[matName] = { name: matName, image: ensureImage(matName), type: 'Experience', count: breakdown[matName] };
-          }
-          const expMap = {};
-          if (expCalc.totalDorra > 0) expMap['Dorra'] = { name: 'Dorra', image: ensureImage('Dorra'), type: 'Currency', count: expCalc.totalDorra };
-          return aggregateMaps([asc, atk, main, sup, ult, expEntries, expMap]);
+      arr.forEach(it => {
+        let count = it.count || 0;
+        if (mode === 'remaining') {
+          const invCount = (inv.counts && inv.counts[it.name]) ? Number(inv.counts[it.name]) : 0;
+          count = Math.max(0, count - invCount);
+          if (count <= 0) return;
+        }
+        const imgPath = ensureImage(it.image || it.name);
+        const d = el('div', { class: 'material', 'data-tooltip': it.name || '' });
+        d.innerHTML = `<img src="${imgPath}" alt="${it.name}"><div class="mat-count">${count}</div>`;
+        materialsGrid.appendChild(d);
+      });
+    }
+
+    /* ---------------------------
+       Render saved characters
+    ----------------------------*/
+    const characterGrid = $('#characterGrid');
+
+    function renderSavedCharacters() {
+      characterGrid.innerHTML = '';
+      const saved = loadSaved();
+      const visible = saved.filter(cfg => !cfg.completed);
+
+      if (!visible.length) {
+        characterGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center" class="muted">No characters yet — click Add Character to begin.</div>';
+        return;
+      }
+
+      visible.forEach(cfg => {
+        const ch = characters.find(c => c.id === cfg.charId);
+        if (!ch) return;
+
+        const card = el('div', { class: 'character-card card' });
+        if (cfg.ignored) card.classList.add('dimmed');
+
+        // Top row
+        const top = el('div', { class: 'char-top' });
+        const leftA = el('div', { class: 'char-actions-left' });
+
+        const editBtn = el('button', { class: 'icon-btn', title: 'Edit' });
+        editBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12V21h8.97L21 12.03 14.98 6 3 12z" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        editBtn.addEventListener('click', () => openDetailsForEdit(cfg.id));
+
+        const completeBtn = el('button', { class: 'icon-btn', title: 'Complete' });
+        completeBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10 15l-3.5-3.5L6 13l4 4 8-8-1.5-1.5L10 15z" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        completeBtn.addEventListener('click', () => {
+          if (!confirm(`Mark ${ch.name} as completed (assume materials collected)?`)) return;
+          cfg.completed = true;
+          addOrUpdate(cfg);
+          renderSavedCharacters();
+          renderMaterials(getMaterialsViewMode());
+          populateModalCharacters();
         });
-        const merged = {};
-        maps.forEach(m => { for (const k in m) { if (!merged[k]) merged[k] = { ...m[k] }; else merged[k].count += m[k].count; } });
-        return Object.values(merged);
-      }
 
-      /* ---------------------------
-         Storage helpers
-      ----------------------------*/
-      const STORAGE_KEY = 'stella_final_configs_v2';
-      const INVENTORY_KEY = 'STELLA_INVENTORY_DATA';
-      const THEME_KEY = 'STELLA_THEME_MODE';
-      const VIEW_MODE_KEY = 'STELLA_MATERIALS_VIEW_MODE';
+        leftA.appendChild(editBtn);
+        leftA.appendChild(completeBtn);
 
-      const loadSaved = () => JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      const saveAll = arr => localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
-      const addOrUpdate = cfg => { const arr = loadSaved(); const idx = arr.findIndex(x => x.id === cfg.id); if (idx >= 0) arr[idx] = cfg; else arr.push(cfg); saveAll(arr); }
-      const removeConfig = id => saveAll(loadSaved().filter(x => x.id !== id));
-      const loadInventory = () => { try { return JSON.parse(localStorage.getItem(INVENTORY_KEY) || '{}'); } catch (e) { return {}; } };
-      const saveInventory = obj => localStorage.setItem(INVENTORY_KEY, JSON.stringify(obj || {}));
+        const rightA = el('div', { class: 'char-actions-right' });
 
-      /* ---------------------------
-         Render materials summary (icons only)
-      ----------------------------*/
-      const materialsGrid = $('#materialsGrid');
-      const btnTotal = $('#btnTotalNeeded'), btnRemaining = $('#btnRemainingNeeded');
-
-      function getMaterialsViewMode() { return localStorage.getItem(VIEW_MODE_KEY) || 'total'; }
-      function updateModeButtons(mode) {
-        btnTotal.classList.toggle('active', mode === 'total');
-        btnRemaining.classList.toggle('active', mode === 'remaining');
-      }
-      function setMaterialsViewMode(m) { localStorage.setItem(VIEW_MODE_KEY, m); updateModeButtons(m); renderMaterials(m); }
-
-      function renderMaterials(mode = 'total') {
-        const arr = computeCombinedTotals();
-        arr.sort(materialSort);
-        const inv = loadInventory();
-        materialsGrid.innerHTML = '';
-        if (!arr.length) { materialsGrid.innerHTML = '<div class="small muted">Add characters to see totals.</div>'; return; }
-        arr.forEach(it => {
-          let count = it.count || 0;
-          if (mode === 'remaining') {
-            const invCount = (inv.counts && inv.counts[it.name]) ? Number(inv.counts[it.name]) : 0;
-            count = Math.max(0, count - invCount);
-            if (count <= 0) return;
-          }
-          const imgPath = ensureImage(it.image || it.name);
-          const d = el('div', { class: 'material', 'data-tooltip': it.name || '' });
-          d.innerHTML = `<img src="${imgPath}" alt="${it.name}"><div class="mat-count">${count}</div>`;
-          materialsGrid.appendChild(d);
+        const deleteBtn = el('button', { class: 'icon-btn', title: 'Delete' });
+        deleteBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 7h12v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V7z M9 3h6l1 2H8l1-2z" stroke-width="1.2"/></svg>';
+        deleteBtn.addEventListener('click', () => {
+          if (!confirm(`Delete ${ch.name}?`)) return;
+          removeConfig(cfg.id);
+          renderSavedCharacters();
+          renderMaterials(getMaterialsViewMode());
+          populateModalCharacters();
         });
-      }
 
-      /* ---------------------------
-         Render saved characters
-      ----------------------------*/
-      const characterGrid = $('#characterGrid');
-
-      function renderSavedCharacters() {
-        characterGrid.innerHTML = '';
-        const saved = loadSaved();
-        const visible = saved.filter(cfg => !cfg.completed);
-        if (!visible.length) { characterGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center" class="muted">No characters yet — click Add Character to begin.</div>'; return; }
-        visible.forEach(cfg => {
-          const ch = characters.find(c => c.id === cfg.charId); if (!ch) return;
-          const card = el('div', { class: 'character-card card' });
+        const hideBtn = el('button', { class: 'icon-btn', title: cfg.ignored ? 'Show' : 'Hide' });
+        hideBtn.innerHTML = cfg.ignored ?
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5z" stroke-width="1.2"/></svg>' :
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7z" stroke-width="1.2"/></svg>';
+        hideBtn.addEventListener('click', () => {
+          cfg.ignored = !cfg.ignored;
+          addOrUpdate(cfg);
           if (cfg.ignored) card.classList.add('dimmed');
-
-          // top row
-          const top = el('div', { class: 'char-top' });
-          const leftA = el('div', { class: 'char-actions-left' });
-          const editBtn = el('button', { class: 'icon-btn', title: 'Edit' }); editBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12V21h8.97L21 12.03 14.98 6 3 12z" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-          editBtn.addEventListener('click', () => openDetailsForEdit(cfg.id));
-          const completeBtn = el('button', { class: 'icon-btn', title: 'Complete' }); completeBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10 15l-3.5-3.5L6 13l4 4 8-8-1.5-1.5L10 15z" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-          completeBtn.addEventListener('click', () => { if (!confirm(`Mark ${ch.name} as completed (assume materials collected)?`)) return; cfg.completed = true; addOrUpdate(cfg); renderSavedCharacters(); renderMaterials(getMaterialsViewMode()); populateModalCharacters(); });
-
-          leftA.appendChild(editBtn); leftA.appendChild(completeBtn);
-
-          const rightA = el('div', { class: 'char-actions-right' });
-          const deleteBtn = el('button', { class: 'icon-btn', title: 'Delete' }); deleteBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 7h12v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V7z M9 3h6l1 2H8l1-2z" stroke-width="1.2"/></svg>';
-          deleteBtn.addEventListener('click', () => { if (!confirm(`Delete ${ch.name}?`)) return; removeConfig(cfg.id); renderSavedCharacters(); renderMaterials(getMaterialsViewMode()); populateModalCharacters(); });
-
-          const hideBtn = el('button', { class: 'icon-btn', title: cfg.ignored ? 'Show' : 'Hide' });
-          hideBtn.innerHTML = cfg.ignored ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5z" stroke-width="1.2"/></svg>' : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7z" stroke-width="1.2"/></svg>';
-          hideBtn.addEventListener('click', () => {
-            cfg.ignored = !cfg.ignored;
-            addOrUpdate(cfg);
-            if (cfg.ignored) card.classList.add('dimmed'); else card.classList.remove('dimmed');
-            hideBtn.title = cfg.ignored ? 'Show' : 'Hide';
-            hideBtn.innerHTML = cfg.ignored ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5z" stroke-width="1.2"/></svg>' : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7z" stroke-width="1.2"/></svg>';
-            renderSavedCharacters(); renderMaterials(getMaterialsViewMode()); populateModalCharacters();
-          });
-
-          rightA.appendChild(deleteBtn); rightA.appendChild(hideBtn);
-
-          const nameDiv = el('div', { class: 'char-name' }, ch.name);
-          top.appendChild(leftA); top.appendChild(nameDiv); top.appendChild(rightA);
-          card.appendChild(top);
-
-          // body
-          const body = el('div', { class: 'char-body' });
-          const portrait = el('div', { class: 'char-portrait' }); portrait.style.backgroundImage = `url(${ch.image})`;
-          const info = el('div', { class: 'char-info' });
-          const lv = el('div', { class: 'char-levels' }); lv.innerHTML = `<div style="font-weight:700">Levels</div><div class="small">${cfg.currentLevel} → ${cfg.desiredLevel}</div>`;
-          const skillsWrap = el('div', { class: 'char-skills' }); skillsWrap.innerHTML = `<div style="font-weight:700">Skills</div>`;
-          const addSkillRow = (label, curv, desv) => { const row = el('div', { class: 'skill-row' }); row.innerHTML = `<div class="skill-label">${label}</div><div class="skill-values small">${curv} → ${desv}</div>`; skillsWrap.appendChild(row); };
-          addSkillRow('Attack', cfg.atkCur, cfg.atkDes); addSkillRow('Main', cfg.mainCur, cfg.mainDes); addSkillRow('Support', cfg.supCur, cfg.supDes); addSkillRow('Ultimate', cfg.ultCur, cfg.ultDes);
-          info.appendChild(lv); info.appendChild(skillsWrap);
-          body.appendChild(portrait); body.appendChild(info);
-          card.appendChild(body);
-
-          // materials preview
-          const mats = computeMaterialsForConfig(cfg);
-          const matWrap = el('div', { class: 'char-materials' });
-          mats.sort(materialSort).slice(0, 8).forEach(m => {
-            const mm = el('div', { class: 'char-material', 'data-tooltip': m.name || '' });
-            mm.innerHTML = `<img src="${ensureImage(m.image || m.name)}" alt="${m.name}"><div style="font-weight:700">${m.count}</div>`;
-            matWrap.appendChild(mm);
-          });
-
-          card.appendChild(matWrap);
-          characterGrid.appendChild(card);
-        });
-      }
-
-      /* ---------------------------
-         List modal filters & population
-      ----------------------------*/
-      const listModal = $('#listModal');
-      const modalTiles = $('#modalTiles');
-      const listSearch = $('#listSearch');
-      const listFilters = $('#listFilters');
-      const closeListModal = $('#closeListModal');
-
-      const FILTERS_FOR_LIST = [
-        { label: 'Element', id: 'filterElement', options: ['', 'Aqua', 'Ignis', 'Terra', 'Ventus', 'Lux', 'Umbra'] },
-        { label: 'Quality', id: 'filterQuality', options: ['', '4', '5'] },
-        { label: 'Position', id: 'filterPosition', options: ['', 'Versatile', 'Vanguard', 'Support'] },
-        { label: 'Faction', id: 'filterFaction', options: ['', 'Yunji Studio', 'Neo Grace Organization', 'Scarlet Sights Media', 'Grace Imperium', 'New Star Guild', 'Petal Bloom Guild', 'Imperial Guard', 'Ashwind Clan', 'Post Haste', 'Baize Bureau', 'United Harvest', 'Freelance Trekker', 'Trekker Association', 'Goodwind Homecare', 'Fenhuang Diner', 'White Cat Troupe'] },
-        { label: 'Style', id: 'filterStyle', options: ['', 'Adventurous', 'Creative', 'Steady', 'Collector', 'Inquisitive'] }
-      ];
-
-      function createListFilters() {
-        listFilters.innerHTML = '';
-        FILTERS_FOR_LIST.forEach(f => {
-          const lbl = el('label', { style: 'margin:0;font-size:13px;color:var(--muted-dark)' }, `${f.label}: `);
-          const s = el('select', { id: f.id });
-          f.options.forEach(opt => s.appendChild(el('option', {}, opt)));
-          s.style.padding = '8px'; s.style.borderRadius = '8px'; s.style.border = '1px solid rgba(255,255,255,0.04)'; s.style.background = 'rgba(0,0,0,0.06)'; s.style.color = 'inherit';
-          lbl.appendChild(s); listFilters.appendChild(lbl);
-        });
-      }
-
-      function populateModalCharacters() {
-        const saved = loadSaved();
-        const q = (listSearch.value || '').toLowerCase();
-        const fe = $('#filterElement')?.value || '';
-        const fq = $('#filterQuality')?.value || '';
-        const fp = $('#filterPosition')?.value || '';
-        const ff = $('#filterFaction')?.value || '';
-        const fs = $('#filterStyle')?.value || '';
-
-        // Get the selected sorting option
-        const sortBy = $('#sortCharactersSelect')?.value || 'default';
-
-        modalTiles.innerHTML = '';
-        let list = characters.map(c => ({ ...c, savedCfg: saved.find(s => s.charId === c.id) }));
-
-        // Filter characters
-        list = list.filter(c => {
-          if (q && !(c.name.toLowerCase().includes(q) || (c.element || '').toLowerCase().includes(q) || (c.id || '').toLowerCase().includes(q))) return false;
-          if (fe && c.element !== fe) return false;
-          if (fq && c.quality !== fq) return false;
-          if (fp && c.position !== fp) return false;
-          if (ff && c.faction !== ff) return false;
-          if (fs && c.style !== fs) return false;
-          return true;
+          else card.classList.remove('dimmed');
+          hideBtn.title = cfg.ignored ? 'Show' : 'Hide';
+          hideBtn.innerHTML = cfg.ignored ?
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5z" stroke-width="1.2"/></svg>' :
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7z" stroke-width="1.2"/></svg>';
+          renderSavedCharacters();
+          renderMaterials(getMaterialsViewMode());
+          populateModalCharacters();
         });
 
-        // SORTING LOGIC
-        list.sort((a, b) => {
-          switch (sortBy) {
-            case 'name':
-              return a.name.localeCompare(b.name);
-            case 'element':
-              return (a.element || '').localeCompare(b.element || '');
-            case 'quality':
-              // Sort by quality (rarity) - 5 stars first, then 4 stars
-              return (b.quality || '').localeCompare(a.quality || '');
-            case 'position':
-              return (a.position || '').localeCompare(b.position || '');
-            case 'faction':
-              return (a.faction || '').localeCompare(b.faction || '');
-            case 'default':
-            default:
-              // Default sorting
-              return 0;
-          }
-        });
+        rightA.appendChild(deleteBtn);
+        rightA.appendChild(hideBtn);
 
-        list.forEach(c => {
-          const tile = el('div', { class: 'tile' });
-          const already = saved.find(s => s.charId === c.id && !s.completed);
-          if (already) tile.classList.add('disabled');
-          tile.innerHTML = `<img src="${c.image}" alt="${c.name}"><div style="font-weight:800">${c.name}</div><div class="small muted">${c.element} • ${c.quality}★</div>`;
-          tile.addEventListener('click', () => {
-            if (tile.classList.contains('disabled')) return;
-            listModal.classList.remove('open');
-            listModal.setAttribute('aria-hidden', 'true');
-            openDetailsForNew(c.id);
-          });
-          modalTiles.appendChild(tile);
-        });
-      }
+        const nameDiv = el('div', { class: 'char-name' }, ch.name);
+        top.appendChild(leftA);
+        top.appendChild(nameDiv);
+        top.appendChild(rightA);
+        card.appendChild(top);
 
-      $('#addCharacterBtn').addEventListener('click', () => {
-        createListFilters();
-        populateModalCharacters();
-        listModal.classList.add('open');
-        listModal.setAttribute('aria-hidden', 'false');
+        // Body
+        const body = el('div', { class: 'char-body' });
+        const portrait = el('div', { class: 'char-portrait' });
+        portrait.style.backgroundImage = `url(${ch.image})`;
 
-        // Re-attach event listeners for filters to ensure they work
-        FILTERS_FOR_LIST.forEach(f => {
-          const filterEl = $(`#${f.id}`);
-          if (filterEl) {
-            filterEl.addEventListener('change', populateModalCharacters);
-          }
-        });
-      });
-      closeListModal.addEventListener('click', () => listModal.classList.remove('open'));
+        const info = el('div', { class: 'char-info' });
+        const lv = el('div', { class: 'char-levels' });
+        lv.innerHTML = `<div style="font-weight:700">Levels</div><div class="small">${cfg.currentLevel} → ${cfg.desiredLevel}</div>`;
 
-      /* ---------------------------
-         Details modal behavior & validation
-         - Level selects are 1,10,20,...,90
-         - Skills limited by ascension tier rules
-         - Desired >= Current enforced
-      ----------------------------*/
-      const detailsModalEl = $('#detailsModal');
-      const detailsPortrait = $('#detailsPortrait');
-      const detailsName = $('#detailsName');
-      const detailsSub = $('#detailsSub');
-      const curLevel = $('#curLevel');
-      const desLevel = $('#desLevel');
-      const talentsInput = $('#talentsInput');
-      const saveDetailsBtn = $('#saveDetails');
-      const detailsCloseBtn = $('#detailsClose');
-      let editingConfigId = null;
+        const skillsWrap = el('div', { class: 'char-skills' });
+        skillsWrap.innerHTML = `<div style="font-weight:700">Skills</div>`;
 
-      // fill skill selects (1..10)
-      function fillSkillSelects() {
-        const curSelects = $$('.skill-cur', detailsModalEl);
-        const desSelects = $$('.skill-des', detailsModalEl);
-        [curSelects, desSelects].forEach(group => group.forEach(s => {
-          s.innerHTML = '';
-          for (let i = 1; i <= 10; i++) s.appendChild(el('option', { value: i }, i));
-        }));
-      }
-
-      /* level options 1,10,20,...,90 */
-      const LEVEL_OPTIONS = [1, 10, 20, 30, 40, 50, 60, 70, 80, 90];
-      function buildLevelSelects() {
-        curLevel.innerHTML = ''; desLevel.innerHTML = '';
-        LEVEL_OPTIONS.forEach(l => { curLevel.appendChild(el('option', { value: l }, l)); desLevel.appendChild(el('option', { value: l }, l)); });
-        curLevel.classList.add('level-select'); desLevel.classList.add('level-select');
-      }
-
-      /* ascension-based max skill mapping per your rules */
-      function maxSkillForLevel(level) {
-        const lv = Number(level);
-        if (lv < 20) return 1;
-        if (lv < 30) return 2;
-        if (lv < 40) return 3;
-        if (lv < 50) return 4;
-        if (lv < 60) return 5;
-        if (lv < 70) return 6;
-        if (lv < 80) return 7;
-        if (lv < 90) return 8;
-        return 10;
-      }
-
-      /* whenever level changes, enforce skill caps */
-      function enforceSkillCapsForCurrentLevel() {
-        const curLv = Number(curLevel.value);
-        const desLv = Number(desLevel.value);
-        const curMax = maxSkillForLevel(curLv);
-        const desMax = maxSkillForLevel(desLv);
-
-        const curSel = $$('.skill-cur', detailsModalEl);
-        const desSel = $$('.skill-des', detailsModalEl);
-
-        // apply allowed ranges and adjust values if they exceed allowed
-        curSel.forEach(s => {
-          const val = Number(s.value);
-          // disable options greater than curMax
-          Array.from(s.options).forEach(opt => opt.disabled = Number(opt.value) > curMax);
-          if (val > curMax) s.value = curMax;
-        });
-        desSel.forEach(s => {
-          const val = Number(s.value);
-          Array.from(s.options).forEach(opt => opt.disabled = Number(opt.value) > desMax);
-          if (val > desMax) s.value = desMax;
-        });
-
-        // also enforce desired skill >= current skill for each pair
-        for (let i = 0; i < curSel.length; i++) {
-          const c = Number(curSel[i].value) || 1;
-          const d = Number(desSel[i].value) || 1;
-          if (d < c) desSel[i].value = c;
-        }
-      }
-
-      /* ensure levels' desired >= current */
-      function enforceLevelMonotonicity() {
-        const cur = Number(curLevel.value);
-        const des = Number(desLevel.value);
-        if (des < cur) desLevel.value = cur;
-      }
-
-      function openDetailsForNew(charId) {
-        editingConfigId = null;
-        const ch = characters.find(c => c.id === charId); if (!ch) return;
-        detailsPortrait.style.backgroundImage = `url(${ch.image})`;
-        detailsName.textContent = ch.name;
-        detailsSub.textContent = `${ch.element} • ${ch.quality}★ • ${ch.position}`;
-        buildLevelSelects();
-        fillSkillSelects();
-        curLevel.value = '1'; desLevel.value = '1';
-        const curSel = $$('.skill-cur')[0]; if (curSel) curSel.value = '1';
-        $$('.skill-des').forEach(s => s.value = '1');
-        talentsInput.value = '0'; $('#obtainedFlag').checked = false;
-        enforceSkillCapsForCurrentLevel();
-        detailsModalEl.classList.add('open'); detailsModalEl.setAttribute('aria-hidden', 'false');
-      }
-
-      function openDetailsForEdit(cfgId) {
-        const saved = loadSaved(); const cfg = saved.find(x => x.id === cfgId); if (!cfg) return;
-        editingConfigId = cfgId;
-        const ch = characters.find(c => c.id === cfg.charId); if (!ch) return;
-        detailsPortrait.style.backgroundImage = `url(${ch.image})`;
-        detailsName.textContent = ch.name; detailsSub.textContent = `${ch.element} • ${ch.quality}★ • ${ch.position}`;
-        buildLevelSelects(); fillSkillSelects();
-        curLevel.value = cfg.currentLevel; desLevel.value = cfg.desiredLevel;
-        const curSelArr = $$('.skill-cur'); const desSelArr = $$('.skill-des');
-        if (curSelArr[0]) curSelArr[0].value = cfg.atkCur; if (desSelArr[0]) desSelArr[0].value = cfg.atkDes;
-        if (curSelArr[1]) curSelArr[1].value = cfg.mainCur; if (desSelArr[1]) desSelArr[1].value = cfg.mainDes;
-        if (curSelArr[2]) curSelArr[2].value = cfg.supCur; if (desSelArr[2]) desSelArr[2].value = cfg.supDes;
-        if (curSelArr[3]) curSelArr[3].value = cfg.ultCur; if (desSelArr[3]) desSelArr[3].value = cfg.ultDes;
-        talentsInput.value = cfg.talents || 0; $('#obtainedFlag').checked = !!cfg.obtained;
-        enforceSkillCapsForCurrentLevel();
-        detailsModalEl.classList.add('open'); detailsModalEl.setAttribute('aria-hidden', 'false');
-      }
-
-      /* event handlers to enforce rules live */
-      curLevel.addEventListener('change', () => { enforceLevelMonotonicity(); enforceSkillCapsForCurrentLevel(); });
-      desLevel.addEventListener('change', () => { enforceLevelMonotonicity(); enforceSkillCapsForCurrentLevel(); });
-      detailsModalEl.addEventListener('change', (e) => {
-        // if skill selects changed, ensure desired >= current
-        if (e.target && (e.target.classList && (e.target.classList.contains('skill-cur') || e.target.classList.contains('skill-des')))) {
-          enforceSkillCapsForCurrentLevel();
-        }
-      });
-
-      saveDetailsBtn.addEventListener('click', () => {
-        // read skill selects
-        const curSelArr = $$('.skill-cur'); const desSelArr = $$('.skill-des');
-        const cfg = {
-          id: editingConfigId || `cfg_${Date.now()}`,
-          charId: characters.find(c => c.name === detailsName.textContent)?.id || characters[0].id,
-          currentLevel: Number(curLevel.value),
-          desiredLevel: Number(desLevel.value),
-          atkCur: Number(curSelArr[0]?.value || 1), atkDes: Number(desSelArr[0]?.value || 1),
-          mainCur: Number(curSelArr[1]?.value || 1), mainDes: Number(desSelArr[1]?.value || 1),
-          supCur: Number(curSelArr[2]?.value || 1), supDes: Number(desSelArr[2]?.value || 1),
-          ultCur: Number(curSelArr[3]?.value || 1), ultDes: Number(desSelArr[3]?.value || 1),
-          talents: Number(talentsInput.value || 0),
-          obtained: $('#obtainedFlag').checked,
-          ignored: false,
-          completed: false
+        const addSkillRow = (label, curv, desv) => {
+          const row = el('div', { class: 'skill-row' });
+          row.innerHTML = `<div class="skill-label">${label}</div><div class="skill-values small">${curv} → ${desv}</div>`;
+          skillsWrap.appendChild(row);
         };
-        // ensure desired >= current for levels and skills
-        if (cfg.desiredLevel < cfg.currentLevel) cfg.desiredLevel = cfg.currentLevel;
-        if (cfg.atkDes < cfg.atkCur) cfg.atkDes = cfg.atkCur;
-        if (cfg.mainDes < cfg.mainCur) cfg.mainDes = cfg.mainCur;
-        if (cfg.supDes < cfg.supCur) cfg.supDes = cfg.supCur;
-        if (cfg.ultDes < cfg.ultCur) cfg.ultDes = cfg.ultCur;
 
-        addOrUpdate(cfg);
-        detailsModalEl.classList.remove('open'); detailsModalEl.setAttribute('aria-hidden', 'true');
-        renderSavedCharacters(); renderMaterials(getMaterialsViewMode()); populateModalCharacters();
+        addSkillRow('Attack', cfg.atkCur, cfg.atkDes);
+        addSkillRow('Main', cfg.mainCur, cfg.mainDes);
+        addSkillRow('Support', cfg.supCur, cfg.supDes);
+        addSkillRow('Ultimate', cfg.ultCur, cfg.ultDes);
+
+        info.appendChild(lv);
+        info.appendChild(skillsWrap);
+        body.appendChild(portrait);
+        body.appendChild(info);
+        card.appendChild(body);
+
+        // Materials preview
+        const mats = computeMaterialsForConfig(cfg);
+        const matWrap = el('div', { class: 'char-materials' });
+        mats.sort(materialSort).slice(0, 8).forEach(m => {
+          const mm = el('div', { class: 'char-material', 'data-tooltip': m.name || '' });
+          mm.innerHTML = `<img src="${ensureImage(m.image || m.name)}" alt="${m.name}"><div style="font-weight:700">${m.count}</div>`;
+          matWrap.appendChild(mm);
+        });
+
+        card.appendChild(matWrap);
+        characterGrid.appendChild(card);
       });
-      detailsCloseBtn.addEventListener('click', () => { detailsModalEl.classList.remove('open'); detailsModalEl.setAttribute('aria-hidden', 'true'); });
+    }
 
-      /* ---------------------------
-         Inventory modal logic
-      ----------------------------*/
-      const manageInventoryBtn = $('#manageInventoryBtn');
-      const inventoryModal = $('#inventoryModal');
-      const inventoryGrid = $('#inventoryGrid');
-      const inventoryFilter = $('#inventoryFilter');
-      const inventoryDorra = $('#inventoryDorra');
-      const inventorySaveClose = $('#inventorySaveClose');
-      const inventoryDeleteAll = $('#inventoryDeleteAll');
-      const inventoryImportBtn = $('#inventoryImport');
-      const inventoryExportBtn = $('#inventoryExport');
-      const invImportFile = $('#invImportFile');
+    /* ---------------------------
+       List modal filters & population
+    ----------------------------*/
+    const listModal = $('#listModal');
+    const modalTiles = $('#modalTiles');
+    const listSearch = $('#listSearch');
+    const listFilters = $('#listFilters');
+    const closeListModal = $('#closeListModal');
 
-      function buildMasterMaterialsList() {
-        const set = {};
+    const FILTERS_FOR_LIST = [
+      { label: 'Element', id: 'filterElement', options: ['', 'Aqua', 'Ignis', 'Terra', 'Ventus', 'Lux', 'Umbra'] },
+      { label: 'Quality', id: 'filterQuality', options: ['', '4', '5'] },
+      { label: 'Position', id: 'filterPosition', options: ['', 'Versatile', 'Vanguard', 'Support'] },
+      { label: 'Faction', id: 'filterFaction', options: ['', 'Yunji Studio', 'Neo Grace Organization', 'Scarlet Sights Media', 'Grace Imperium', 'New Star Guild', 'Petal Bloom Guild', 'Imperial Guard', 'Ashwind Clan', 'Post Haste', 'Baize Bureau', 'United Harvest', 'Freelance Trekker', 'Trekker Association', 'Goodwind Homecare', 'Fenhuang Diner', 'White Cat Troupe'] },
+      { label: 'Style', id: 'filterStyle', options: ['', 'Adventurous', 'Creative', 'Steady', 'Collector', 'Inquisitive'] }
+    ];
 
-        // Add all ascension materials
-        for (const k in characterAscensionMaterials) {
-          (characterAscensionMaterials[k] || []).forEach(n => {
-            if (!n) return;
-            set[n] = { name: n, image: getMaterialImagePath(n), category: detectCategoryForName(n) };
-          });
+    function createListFilters() {
+      listFilters.innerHTML = '';
+      FILTERS_FOR_LIST.forEach(f => {
+        const lbl = el('label', { style: 'margin:0;font-size:13px;color:var(--muted-dark)' }, `${f.label}: `);
+        const s = el('select', { id: f.id });
+        f.options.forEach(opt => s.appendChild(el('option', {}, opt)));
+        s.style.padding = '8px';
+        s.style.borderRadius = '8px';
+        s.style.border = '1px solid rgba(255,255,255,0.04)';
+        s.style.background = 'rgba(0,0,0,0.06)';
+        s.style.color = 'inherit';
+        lbl.appendChild(s);
+        listFilters.appendChild(lbl);
+      });
+    }
+
+    function populateModalCharacters() {
+      const saved = loadSaved();
+      const q = (listSearch.value || '').toLowerCase();
+      const fe = $('#filterElement')?.value || '';
+      const fq = $('#filterQuality')?.value || '';
+      const fp = $('#filterPosition')?.value || '';
+      const ff = $('#filterFaction')?.value || '';
+      const fs = $('#filterStyle')?.value || '';
+
+      const sortBy = $('#sortCharactersSelect')?.value || 'default';
+
+      modalTiles.innerHTML = '';
+      let list = characters.map(c => ({ ...c, savedCfg: saved.find(s => s.charId === c.id) }));
+
+      list = list.filter(c => {
+        if (q && !(c.name.toLowerCase().includes(q) || (c.element || '').toLowerCase().includes(q) || (c.id || '').toLowerCase().includes(q))) return false;
+        if (fe && c.element !== fe) return false;
+        if (fq && c.quality !== fq) return false;
+        if (fp && c.position !== fp) return false;
+        if (ff && c.faction !== ff) return false;
+        if (fs && c.style !== fs) return false;
+        return true;
+      });
+
+      list.sort((a, b) => {
+        switch (sortBy) {
+          case 'name': return a.name.localeCompare(b.name);
+          case 'element': return (a.element || '').localeCompare(b.element || '');
+          case 'quality': return (b.quality || '').localeCompare(a.quality || '');
+          case 'position': return (a.position || '').localeCompare(b.position || '');
+          case 'faction': return (a.faction || '').localeCompare(b.faction || '');
+          default: return 0;
         }
+      });
 
-        // Add all skill cartridges
-        for (const k in characterSkillCartridges) {
-          (characterSkillCartridges[k] || []).forEach(n => {
-            if (!n) return;
-            set[n] = { name: n, image: getMaterialImagePath(n), category: detectCategoryForName(n) };
-          });
-        }
-
-        // Add all boss materials
-        for (const k in characterBossMaterials) {
-          (characterBossMaterials[k] || []).forEach(n => {
-            if (!n) return;
-            set[n] = { name: n, image: getMaterialImagePath(n), category: detectCategoryForName(n) };
-          });
-        }
-
-        // Add weekly boss group materials
-        for (const group in WEEKLY_BOSS_GROUPS) {
-          (WEEKLY_BOSS_GROUPS[group] || []).forEach(n => {
-            if (!n) return;
-            set[n] = { name: n, image: getMaterialImagePath(n), category: detectCategoryForName(n) };
-          });
-        }
-
-        // Add EXP materials
-        EXP_MATERIALS.forEach(m => {
-          set[m.name] = { name: m.name, image: getMaterialImagePath(m.name), category: 'Experience' };
+      list.forEach(c => {
+        const tile = el('div', { class: 'tile' });
+        const already = saved.find(s => s.charId === c.id && !s.completed);
+        if (already) tile.classList.add('disabled');
+        tile.innerHTML = `<img src="${c.image}" alt="${c.name}"><div style="font-weight:800">${c.name}</div><div class="small muted">${c.element} • ${c.quality}★</div>`;
+        tile.addEventListener('click', () => {
+          if (tile.classList.contains('disabled')) return;
+          listModal.classList.remove('open');
+          listModal.setAttribute('aria-hidden', 'true');
+          openDetailsForNew(c.id);
         });
+        modalTiles.appendChild(tile);
+      });
+    }
 
-        // Add disc materials
-        ['Cracked Disc', 'Pure Quality Treasure', 'Elegant Rim', 'Starlit Colored Glass'].forEach(n => {
-          set[n] = { name: n, image: getMaterialImagePath(n), category: 'Disc' };
-        });
+    $('#addCharacterBtn').addEventListener('click', () => {
+      createListFilters();
+      populateModalCharacters();
+      listModal.classList.add('open');
+      listModal.setAttribute('aria-hidden', 'false');
 
-        // Add emblem materials
-        ['Good Citizen Point', 'Association Contribution Certificate', 'Grace Voucher'].forEach(n => {
-          set[n] = { name: n, image: getMaterialImagePath(n), category: 'Emblems' };
-        });
-
-        // Add gift materials
-        ['Love Candle', 'Blazing Wings', 'Card Photo Capturer', 'Reflective Photo Capturer',
-          'Portable Blower', 'Exquisite Blower', 'Whisper Wind Spinner', 'Chilling Wind Spinner',
-          'Rising Star', 'Emerging Talent', 'Stellanite Enchantment', 'Moonlit Companion',
-          'Summer Chill Crushed Ice', 'Fragrant Ice Delight', 'Gilded Ceramic Bowl', 'Blossom Porcelain Cup'].forEach(n => {
-            set[n] = { name: n, image: getMaterialImagePath(n), category: 'Gifts' };
-          });
-
-        // Add disc ascension materials (if any exist)
-        for (const k in characterDiscAscensionMaterials) {
-          (characterDiscAscensionMaterials[k] || []).forEach(n => {
-            if (!n) return;
-            set[n] = { name: n, image: getMaterialImagePath(n), category: detectCategoryForName(n) };
-          });
+      FILTERS_FOR_LIST.forEach(f => {
+        const filterEl = $(`#${f.id}`);
+        if (filterEl) {
+          filterEl.addEventListener('change', populateModalCharacters);
         }
+      });
+    });
 
-        // Remove Dorra from the grid since it has its own input
-        delete set['Dorra'];
+    closeListModal.addEventListener('click', () => listModal.classList.remove('open'));
 
-        return Object.values(set);
+    /* ---------------------------
+       Details modal behavior
+    ----------------------------*/
+    const detailsModalEl = $('#detailsModal');
+    const detailsPortrait = $('#detailsPortrait');
+    const detailsName = $('#detailsName');
+    const detailsSub = $('#detailsSub');
+    const curLevel = $('#curLevel');
+    const desLevel = $('#desLevel');
+    const talentsInput = $('#talentsInput');
+    const saveDetailsBtn = $('#saveDetails');
+    const detailsCloseBtn = $('#detailsClose');
+    let editingConfigId = null;
+
+    function fillSkillSelects() {
+      const curSelects = $$('.skill-cur', detailsModalEl);
+      const desSelects = $$('.skill-des', detailsModalEl);
+      [curSelects, desSelects].forEach(group => group.forEach(s => {
+        s.innerHTML = '';
+        for (let i = 1; i <= 10; i++) s.appendChild(el('option', { value: i }, i));
+      }));
+    }
+
+    const LEVEL_OPTIONS = [1, 10, 20, 30, 40, 50, 60, 70, 80, 90];
+
+    function buildLevelSelects() {
+      curLevel.innerHTML = '';
+      desLevel.innerHTML = '';
+      LEVEL_OPTIONS.forEach(l => {
+        curLevel.appendChild(el('option', { value: l }, l));
+        desLevel.appendChild(el('option', { value: l }, l));
+      });
+      curLevel.classList.add('level-select');
+      desLevel.classList.add('level-select');
+    }
+
+    function maxSkillForLevel(level) {
+      const lv = Number(level);
+      if (lv < 20) return 1;
+      if (lv < 30) return 2;
+      if (lv < 40) return 3;
+      if (lv < 50) return 4;
+      if (lv < 60) return 5;
+      if (lv < 70) return 6;
+      if (lv < 80) return 7;
+      if (lv < 90) return 8;
+      return 10;
+    }
+
+    function enforceSkillCapsForCurrentLevel() {
+      const curLv = Number(curLevel.value);
+      const desLv = Number(desLevel.value);
+      const curMax = maxSkillForLevel(curLv);
+      const desMax = maxSkillForLevel(desLv);
+
+      const curSel = $$('.skill-cur', detailsModalEl);
+      const desSel = $$('.skill-des', detailsModalEl);
+
+      curSel.forEach(s => {
+        const val = Number(s.value);
+        Array.from(s.options).forEach(opt => opt.disabled = Number(opt.value) > curMax);
+        if (val > curMax) s.value = curMax;
+      });
+
+      desSel.forEach(s => {
+        const val = Number(s.value);
+        Array.from(s.options).forEach(opt => opt.disabled = Number(opt.value) > desMax);
+        if (val > desMax) s.value = desMax;
+      });
+
+      for (let i = 0; i < curSel.length; i++) {
+        const c = Number(curSel[i].value) || 1;
+        const d = Number(desSel[i].value) || 1;
+        if (d < c) desSel[i].value = c;
       }
-      let masterMaterials = buildMasterMaterialsList();
+    }
 
-      function matchesFilterCategory(item, filterLabel) {
-        if (!filterLabel || filterLabel === 'All') return true;
+    function enforceLevelMonotonicity() {
+      const cur = Number(curLevel.value);
+      const des = Number(desLevel.value);
+      if (des < cur) desLevel.value = cur;
+    }
 
-        const category = item.category || detectCategoryForName(item.name);
+    function openDetailsForNew(charId) {
+      editingConfigId = null;
+      const ch = characters.find(c => c.id === charId);
+      if (!ch) return;
 
-        switch (filterLabel) {
-          case 'Experience': return category === 'Experience';
-          case 'Character': return category === 'Ascension';
-          case 'Disc': return category === 'Disc';
-          case 'Skill Materials': return category === 'Skill';
-          case 'Disc Materials': return category === 'Disc';
-          case 'Ascension Materials': return category === 'Ascension';
-          case 'Weekly Boss': return category === 'Boss';
-          case 'Emblems': return category === 'Emblems';
-          case 'Gifts': return category === 'Gifts';
-          case 'Miscellaneous': return !category || category === 'Misc';
-          default: return true;
-        }
+      detailsPortrait.style.backgroundImage = `url(${ch.image})`;
+      detailsName.textContent = ch.name;
+      detailsSub.textContent = `${ch.element} • ${ch.quality}★ • ${ch.position}`;
+      buildLevelSelects();
+      fillSkillSelects();
+      curLevel.value = '1';
+      desLevel.value = '1';
+      const curSel = $$('.skill-cur')[0];
+      if (curSel) curSel.value = '1';
+      $$('.skill-des').forEach(s => s.value = '1');
+      talentsInput.value = '0';
+      $('#obtainedFlag').checked = false;
+      enforceSkillCapsForCurrentLevel();
+      detailsModalEl.classList.add('open');
+      detailsModalEl.setAttribute('aria-hidden', 'false');
+    }
+
+    function openDetailsForEdit(cfgId) {
+      const saved = loadSaved();
+      const cfg = saved.find(x => x.id === cfgId);
+      if (!cfg) return;
+
+      editingConfigId = cfgId;
+      const ch = characters.find(c => c.id === cfg.charId);
+      if (!ch) return;
+
+      detailsPortrait.style.backgroundImage = `url(${ch.image})`;
+      detailsName.textContent = ch.name;
+      detailsSub.textContent = `${ch.element} • ${ch.quality}★ • ${ch.position}`;
+      buildLevelSelects();
+      fillSkillSelects();
+      curLevel.value = cfg.currentLevel;
+      desLevel.value = cfg.desiredLevel;
+      const curSelArr = $$('.skill-cur');
+      const desSelArr = $$('.skill-des');
+      if (curSelArr[0]) curSelArr[0].value = cfg.atkCur;
+      if (desSelArr[0]) desSelArr[0].value = cfg.atkDes;
+      if (curSelArr[1]) curSelArr[1].value = cfg.mainCur;
+      if (desSelArr[1]) desSelArr[1].value = cfg.mainDes;
+      if (curSelArr[2]) curSelArr[2].value = cfg.supCur;
+      if (desSelArr[2]) desSelArr[2].value = cfg.supDes;
+      if (curSelArr[3]) curSelArr[3].value = cfg.ultCur;
+      if (desSelArr[3]) desSelArr[3].value = cfg.ultDes;
+      talentsInput.value = cfg.talents || 0;
+      $('#obtainedFlag').checked = !!cfg.obtained;
+      enforceSkillCapsForCurrentLevel();
+      detailsModalEl.classList.add('open');
+      detailsModalEl.setAttribute('aria-hidden', 'false');
+    }
+
+    curLevel.addEventListener('change', () => {
+      enforceLevelMonotonicity();
+      enforceSkillCapsForCurrentLevel();
+    });
+
+    desLevel.addEventListener('change', () => {
+      enforceLevelMonotonicity();
+      enforceSkillCapsForCurrentLevel();
+    });
+
+    detailsModalEl.addEventListener('change', (e) => {
+      if (e.target && (e.target.classList && (e.target.classList.contains('skill-cur') || e.target.classList.contains('skill-des')))) {
+        enforceSkillCapsForCurrentLevel();
       }
+    });
 
-      function renderInventoryGrid() {
-        const inv = loadInventory();
-        const counts = inv.counts || {};
-        const filterVal = inventoryFilter.value;
-        masterMaterials = buildMasterMaterialsList();
-        const items = masterMaterials.slice().sort(materialSort);
-        inventoryGrid.innerHTML = '';
-        items.forEach(item => {
-          if (!matchesFilterCategory(item, filterVal)) return;
-          const div = el('div', { class: 'inv-item', 'data-tooltip': item.name || '' });
-          const val = counts[item.name] || 0;
-          div.innerHTML = `<img src="${ensureImage(item.image || item.name)}" alt="${item.name}"><input class="inv-input" type="number" min="0" value="${val}" data-name="${item.name}">`;
-          inventoryGrid.appendChild(div);
+    saveDetailsBtn.addEventListener('click', () => {
+      const curSelArr = $$('.skill-cur');
+      const desSelArr = $$('.skill-des');
+      const cfg = {
+        id: editingConfigId || `cfg_${Date.now()}`,
+        charId: characters.find(c => c.name === detailsName.textContent)?.id || characters[0].id,
+        currentLevel: Number(curLevel.value),
+        desiredLevel: Number(desLevel.value),
+        atkCur: Number(curSelArr[0]?.value || 1),
+        atkDes: Number(desSelArr[0]?.value || 1),
+        mainCur: Number(curSelArr[1]?.value || 1),
+        mainDes: Number(desSelArr[1]?.value || 1),
+        supCur: Number(curSelArr[2]?.value || 1),
+        supDes: Number(desSelArr[2]?.value || 1),
+        ultCur: Number(curSelArr[3]?.value || 1),
+        ultDes: Number(desSelArr[3]?.value || 1),
+        talents: Number(talentsInput.value || 0),
+        obtained: $('#obtainedFlag').checked,
+        ignored: false,
+        completed: false
+      };
+
+      if (cfg.desiredLevel < cfg.currentLevel) cfg.desiredLevel = cfg.currentLevel;
+      if (cfg.atkDes < cfg.atkCur) cfg.atkDes = cfg.atkCur;
+      if (cfg.mainDes < cfg.mainCur) cfg.mainDes = cfg.mainCur;
+      if (cfg.supDes < cfg.supCur) cfg.supDes = cfg.supCur;
+      if (cfg.ultDes < cfg.ultCur) cfg.ultDes = cfg.ultCur;
+
+      addOrUpdate(cfg);
+      detailsModalEl.classList.remove('open');
+      detailsModalEl.setAttribute('aria-hidden', 'true');
+      renderSavedCharacters();
+      renderMaterials(getMaterialsViewMode());
+      populateModalCharacters();
+    });
+
+    detailsCloseBtn.addEventListener('click', () => {
+      detailsModalEl.classList.remove('open');
+      detailsModalEl.setAttribute('aria-hidden', 'true');
+    });
+
+    /* ---------------------------
+       Inventory modal logic
+    ----------------------------*/
+    const manageInventoryBtn = $('#manageInventoryBtn');
+    const inventoryModal = $('#inventoryModal');
+    const inventoryGrid = $('#inventoryGrid');
+    const inventoryFilter = $('#inventoryFilter');
+    const inventoryDorra = $('#inventoryDorra');
+    const inventorySaveClose = $('#inventorySaveClose');
+    const inventoryDeleteAll = $('#inventoryDeleteAll');
+    const inventoryImportBtn = $('#inventoryImport');
+    const inventoryExportBtn = $('#inventoryExport');
+    const invImportFile = $('#invImportFile');
+
+    function buildMasterMaterialsList() {
+      const set = {};
+
+      for (const k in characterAscensionMaterials) {
+        (characterAscensionMaterials[k] || []).forEach(n => {
+          if (!n) return;
+          set[n] = { name: n, image: getMaterialImagePath(n), category: detectCategoryForName(n) };
         });
-        inventoryDorra.value = inv.dorra || '';
       }
 
-      manageInventoryBtn.addEventListener('click', () => { masterMaterials = buildMasterMaterialsList(); inventoryModal.classList.add('open'); inventoryModal.setAttribute('aria-hidden', 'false'); renderInventoryGrid(); });
-      inventoryFilter.addEventListener('change', renderInventoryGrid);
+      for (const k in characterSkillCartridges) {
+        (characterSkillCartridges[k] || []).forEach(n => {
+          if (!n) return;
+          set[n] = { name: n, image: getMaterialImagePath(n), category: detectCategoryForName(n) };
+        });
+      }
 
-      inventorySaveClose.addEventListener('click', () => {
-        const inputs = $$('.inv-input', inventoryGrid);
-        const counts = {};
-        inputs.forEach(inp => { const n = inp.dataset.name; const v = Number(inp.value) || 0; counts[n] = v; });
-        const dorraVal = Number(inventoryDorra.value) || 0;
-        saveInventory({ counts, dorra: dorraVal });
-        inventoryModal.classList.remove('open'); inventoryModal.setAttribute('aria-hidden', 'true');
-        renderMaterials(getMaterialsViewMode());
+      for (const k in characterBossMaterials) {
+        (characterBossMaterials[k] || []).forEach(n => {
+          if (!n) return;
+          set[n] = { name: n, image: getMaterialImagePath(n), category: detectCategoryForName(n) };
+        });
+      }
+
+      for (const group in WEEKLY_BOSS_GROUPS) {
+        (WEEKLY_BOSS_GROUPS[group] || []).forEach(n => {
+          if (!n) return;
+          set[n] = { name: n, image: getMaterialImagePath(n), category: detectCategoryForName(n) };
+        });
+      }
+
+      EXP_MATERIALS.forEach(m => {
+        set[m.name] = { name: m.name, image: getMaterialImagePath(m.name), category: 'Experience' };
       });
 
-      inventoryDeleteAll.addEventListener('click', () => {
-        if (!confirm('Delete all inventory data? This cannot be undone.')) return;
-        localStorage.removeItem(INVENTORY_KEY);
-        renderInventoryGrid(); inventoryDorra.value = ''; inventoryModal.classList.remove('open'); inventoryModal.setAttribute('aria-hidden', 'true');
-        renderMaterials(getMaterialsViewMode());
+      ['Cracked Disc', 'Pure Quality Treasure', 'Elegant Rim', 'Starlit Colored Glass'].forEach(n => {
+        set[n] = { name: n, image: getMaterialImagePath(n), category: 'Disc' };
       });
 
-      inventoryExportBtn.addEventListener('click', () => {
-        const inv = loadInventory() || { counts: {}, dorra: 0 };
-        const blob = new Blob([JSON.stringify(inv, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a'); a.href = url; a.download = 'inventory_backup.json'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+      ['Good Citizen Point', 'Association Contribution Certificate', 'Grace Voucher'].forEach(n => {
+        set[n] = { name: n, image: getMaterialImagePath(n), category: 'Emblems' };
       });
 
-      inventoryImportBtn.addEventListener('click', () => { invImportFile.value = ''; invImportFile.click(); });
-      invImportFile.addEventListener('change', (e) => {
-        const f = e.target.files && e.target.files[0]; if (!f) return;
-        const reader = new FileReader();
-        reader.onload = ev => {
-          try {
-            const parsed = JSON.parse(ev.target.result);
-            const hasCounts = parsed && typeof parsed.counts === 'object' && parsed.counts !== null && !Array.isArray(parsed.counts);
-            if (typeof parsed !== 'object' || parsed === null || !hasCounts) {
-              if (!confirm('Imported file does not look like an inventory file. Continue and save anyway?')) return;
-            }
-            saveInventory(parsed);
-            alert('Inventory imported successfully.');
-            renderInventoryGrid();
+      ['Love Candle', 'Blazing Wings', 'Card Photo Capturer', 'Reflective Photo Capturer',
+        'Portable Blower', 'Exquisite Blower', 'Whisper Wind Spinner', 'Chilling Wind Spinner',
+        'Rising Star', 'Emerging Talent', 'Stellanite Enchantment', 'Moonlit Companion',
+        'Summer Chill Crushed Ice', 'Fragrant Ice Delight', 'Gilded Ceramic Bowl', 'Blossom Porcelain Cup'].forEach(n => {
+          set[n] = { name: n, image: getMaterialImagePath(n), category: 'Gifts' };
+        });
+
+      for (const k in characterDiscAscensionMaterials) {
+        (characterDiscAscensionMaterials[k] || []).forEach(n => {
+          if (!n) return;
+          set[n] = { name: n, image: getMaterialImagePath(n), category: detectCategoryForName(n) };
+        });
+      }
+
+      delete set['Dorra'];
+      return Object.values(set);
+    }
+
+    let masterMaterials = buildMasterMaterialsList();
+
+    function matchesFilterCategory(item, filterLabel) {
+      if (!filterLabel || filterLabel === 'All') return true;
+      const category = item.category || detectCategoryForName(item.name);
+
+      switch (filterLabel) {
+        case 'Experience': return category === 'Experience';
+        case 'Character': return category === 'Ascension';
+        case 'Disc': return category === 'Disc';
+        case 'Skill Materials': return category === 'Skill';
+        case 'Disc Materials': return category === 'Disc';
+        case 'Ascension Materials': return category === 'Ascension';
+        case 'Weekly Boss': return category === 'Boss';
+        case 'Emblems': return category === 'Emblems';
+        case 'Gifts': return category === 'Gifts';
+        case 'Miscellaneous': return !category || category === 'Misc';
+        default: return true;
+      }
+    }
+
+    function renderInventoryGrid() {
+      const inv = loadInventory();
+      const counts = inv.counts || {};
+      const filterVal = inventoryFilter.value;
+      masterMaterials = buildMasterMaterialsList();
+      const items = masterMaterials.slice().sort(materialSort);
+      inventoryGrid.innerHTML = '';
+
+      items.forEach(item => {
+        if (!matchesFilterCategory(item, filterVal)) return;
+        const div = el('div', { class: 'inv-item', 'data-tooltip': item.name || '' });
+        const val = counts[item.name] || 0;
+        div.innerHTML = `<img src="${ensureImage(item.image || item.name)}" alt="${item.name}"><input class="inv-input" type="number" min="0" value="${val}" data-name="${item.name}">`;
+        inventoryGrid.appendChild(div);
+      });
+
+      inventoryDorra.value = inv.dorra || '';
+    }
+
+    manageInventoryBtn.addEventListener('click', () => {
+      masterMaterials = buildMasterMaterialsList();
+      inventoryModal.classList.add('open');
+      inventoryModal.setAttribute('aria-hidden', 'false');
+      renderInventoryGrid();
+    });
+
+    inventoryFilter.addEventListener('change', renderInventoryGrid);
+
+    inventorySaveClose.addEventListener('click', () => {
+      const inputs = $$('.inv-input', inventoryGrid);
+      const counts = {};
+      inputs.forEach(inp => {
+        const n = inp.dataset.name;
+        const v = Number(inp.value) || 0;
+        counts[n] = v;
+      });
+      const dorraVal = Number(inventoryDorra.value) || 0;
+      saveInventory({ counts, dorra: dorraVal });
+      inventoryModal.classList.remove('open');
+      inventoryModal.setAttribute('aria-hidden', 'true');
+      renderMaterials(getMaterialsViewMode());
+    });
+
+    inventoryDeleteAll.addEventListener('click', () => {
+      if (!confirm('Delete all inventory data? This cannot be undone.')) return;
+      localStorage.removeItem(INVENTORY_KEY);
+      renderInventoryGrid();
+      inventoryDorra.value = '';
+      inventoryModal.classList.remove('open');
+      inventoryModal.setAttribute('aria-hidden', 'true');
+      renderMaterials(getMaterialsViewMode());
+    });
+
+    inventoryExportBtn.addEventListener('click', () => {
+      const inv = loadInventory() || { counts: {}, dorra: 0 };
+      const blob = new Blob([JSON.stringify(inv, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'inventory_backup.json';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    inventoryImportBtn.addEventListener('click', () => {
+      invImportFile.value = '';
+      invImportFile.click();
+    });
+
+    invImportFile.addEventListener('change', (e) => {
+      const f = e.target.files && e.target.files[0];
+      if (!f) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        try {
+          const parsed = JSON.parse(ev.target.result);
+          const hasCounts = parsed && typeof parsed.counts === 'object' && parsed.counts !== null && !Array.isArray(parsed.counts);
+          if (typeof parsed !== 'object' || parsed === null || !hasCounts) {
+            if (!confirm('Imported file does not look like an inventory file. Continue and save anyway?')) return;
+          }
+          saveInventory(parsed);
+          alert('Inventory imported successfully.');
+          renderInventoryGrid();
+          renderMaterials(getMaterialsViewMode());
+        } catch (err) {
+          alert('Failed to parse JSON: ' + err.message);
+        }
+      };
+      reader.readAsText(f);
+    });
+
+    inventoryModal.addEventListener('click', e => {
+      if (e.target === inventoryModal) {
+        inventoryModal.classList.remove('open');
+        inventoryModal.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    /* ---------------------------
+       Theme handling
+    ----------------------------*/
+    const themeToggle = $('#themeToggle');
+
+    function applySavedTheme() {
+      const saved = localStorage.getItem(THEME_KEY);
+      if (saved === 'light') {
+        document.body.classList.add('light');
+        themeToggle.textContent = '☀️';
+      } else {
+        document.body.classList.remove('light');
+        themeToggle.textContent = '🌙';
+      }
+    }
+
+    themeToggle.addEventListener('click', () => {
+      if (document.body.classList.contains('light')) {
+        document.body.classList.remove('light');
+        localStorage.setItem(THEME_KEY, 'dark');
+        themeToggle.textContent = '🌙';
+      } else {
+        document.body.classList.add('light');
+        localStorage.setItem(THEME_KEY, 'light');
+        themeToggle.textContent = '☀️';
+      }
+    });
+
+    applySavedTheme();
+
+    /* ---------------------------
+       Import JSON for characters
+    ----------------------------*/
+    const importBtn = $('#importBtn');
+    const importFile = document.createElement('input');
+    importFile.type = 'file';
+    importFile.accept = 'application/json';
+    importFile.style.display = 'none';
+    document.body.appendChild(importFile);
+
+    importBtn.addEventListener('click', () => {
+      importFile.click();
+    });
+
+    importFile.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        try {
+          const bundle = JSON.parse(ev.target.result);
+          if (bundle.configs) {
+            saveAll(bundle.configs);
+            alert('Character data imported successfully!');
+            renderSavedCharacters();
             renderMaterials(getMaterialsViewMode());
-          } catch (err) { alert('Failed to parse JSON: ' + err.message); }
-        };
-        reader.readAsText(f);
-      });
-
-      inventoryModal.addEventListener('click', e => { if (e.target === inventoryModal) { inventoryModal.classList.remove('open'); inventoryModal.setAttribute('aria-hidden', 'true'); } });
-
-      /* ---------------------------
-         Theme handling (dark default)
-      ----------------------------*/
-      const themeToggle = $('#themeToggle');
-      function applySavedTheme() { const saved = localStorage.getItem(THEME_KEY); if (saved === 'light') { document.body.classList.add('light'); themeToggle.textContent = '☀️'; } else { document.body.classList.remove('light'); themeToggle.textContent = '🌙'; } }
-      themeToggle.addEventListener('click', () => {
-        if (document.body.classList.contains('light')) { document.body.classList.remove('light'); localStorage.setItem(THEME_KEY, 'dark'); themeToggle.textContent = '🌙'; }
-        else { document.body.classList.add('light'); localStorage.setItem(THEME_KEY, 'light'); themeToggle.textContent = '☀️'; }
-      });
-      applySavedTheme();
-
-      /* ---------------------------
-         Copy Summary (uses materials view mode)
-      ----------------------------*/
-      const copyBtn = $('#copyBtn');
-      function buildMaterialsText(mode) {
-        const arr = computeCombinedTotals().sort((a, b) => materialSort(a, b));
-        const inv = loadInventory();
-        const lines = [];
-        lines.push(`Materials (${mode === 'remaining' ? 'Remaining Needed' : 'Total Needed'})`);
-        lines.push('--------------------------------');
-        arr.forEach(it => {
-          const total = it.count || 0;
-          let needed = total;
-          if (mode === 'remaining') {
-            const invCount = (inv.counts && inv.counts[it.name]) ? Number(inv.counts[it.name]) : 0;
-            needed = Math.max(0, total - invCount);
-            if (needed <= 0) return;
+            populateModalCharacters();
+          } else {
+            alert('No character data found in the imported file.');
           }
-          lines.push(`${it.name}: ${needed}`);
-        });
-        return lines.join('\n');
-      }
-      copyBtn.addEventListener('click', async () => {
-        const mode = getMaterialsViewMode();
-        const text = buildMaterialsText(mode);
-        try { await navigator.clipboard.writeText(text); alert('Materials summary copied to clipboard.'); }
-        catch (e) { prompt('Copy the materials summary below:', text); }
-      });
-
-      /* ---------------------------
-         Export bundle
-      ----------------------------*/
-      const exportBtn = $('#exportBtn');
-      exportBtn.addEventListener('click', () => {
-        const bundle = { configs: loadSaved(), inventory: loadInventory() };
-        const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a'); a.href = url; a.download = 'stella_export.json'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-      });
-
-      /* ---------------------------
-         Initialization & wiring
-      ----------------------------*/
-      btnTotal.addEventListener('click', () => setMaterialsViewMode('total'));
-      btnRemaining.addEventListener('click', () => setMaterialsViewMode('remaining'));
-
-      (function init() {
-        masterMaterials = buildMasterMaterialsList();
-        createListFilters();
-        populateModalCharacters();
-        const mode = localStorage.getItem(VIEW_MODE_KEY) || 'total';
-        updateModeButtons(mode);
-        renderMaterials(mode);
-        renderSavedCharacters();
-
-        // Ensure sort dropdown event listener is properly set up
-        const sortSelect = $('#sortCharactersSelect');
-        if (sortSelect) {
-          sortSelect.addEventListener('change', populateModalCharacters);
+        } catch (err) {
+          alert('Failed to parse JSON: ' + err.message);
         }
+      };
+      reader.readAsText(file);
+    });
 
-        // Also add event listeners for search and filter changes to trigger re-sorting
-        listSearch.addEventListener('input', populateModalCharacters);
+    /* ---------------------------
+       Export bundle
+    ----------------------------*/
+    const exportBtn = $('#exportBtn');
+    exportBtn.addEventListener('click', () => {
+      const bundle = { configs: loadSaved(), inventory: loadInventory() };
+      const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'stella_export.json';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
 
-        // Add event listeners for all filter dropdowns
-        FILTERS_FOR_LIST.forEach(f => {
-          const filterEl = $(`#${f.id}`);
-          if (filterEl) {
-            filterEl.addEventListener('change', populateModalCharacters);
-          }
-        });
-      })();
+    /* ---------------------------
+       Initialization & wiring
+    ----------------------------*/
+    btnTotal.addEventListener('click', () => setMaterialsViewMode('total'));
+    btnRemaining.addEventListener('click', () => setMaterialsViewMode('remaining'));
+
+    (function init() {
+      masterMaterials = buildMasterMaterialsList();
+      createListFilters();
+      populateModalCharacters();
+      const mode = localStorage.getItem(VIEW_MODE_KEY) || 'total';
+      updateModeButtons(mode);
+      renderMaterials(mode);
+      renderSavedCharacters();
+
+      const sortSelect = $('#sortCharactersSelect');
+      if (sortSelect) {
+        sortSelect.addEventListener('change', populateModalCharacters);
+      }
+
+      listSearch.addEventListener('input', populateModalCharacters);
+
+      FILTERS_FOR_LIST.forEach(f => {
+        const filterEl = $(`#${f.id}`);
+        if (filterEl) {
+          filterEl.addEventListener('change', populateModalCharacters);
+        }
+      });
+    })();
   </script>
 </body>
 
