@@ -927,42 +927,44 @@
       return (str || '').toLowerCase().replace(/\s+/g, '_').replace(/[^\w]/g, '');
     }
 
-    function getMaterialImagePath(materialName) {
-      if (!materialName) return 'materials/default.png';
-      const key = safeKey(materialName);
+      function getMaterialImagePath(materialName) {
+        if (!materialName) return 'assets/materials/default.png';
+        const key = safeKey(materialName);
 
-      // First check explicit paths
-      if (MATERIAL_IMAGE_PATHS[key]) return MATERIAL_IMAGE_PATHS[key];
+        // First check explicit paths
+        if (MATERIAL_IMAGE_PATHS[key]) return MATERIAL_IMAGE_PATHS[key];
 
-      // Then use category-based mapping
-      const map = MATERIAL_CATEGORY_MAP[materialName] || '';
-      let folder = 'materials';
+        // Then use category-based mapping
+        const map = MATERIAL_CATEGORY_MAP[materialName] || '';
+        let folder = 'materials';
 
-      if (map === 'Gifts') folder = 'gifts';
-      else if (map === 'Disc') folder = 'disc';
-      else if (map === 'Currency') folder = 'currencies';
-      // materials folder is already the default
+        if (map === 'Gifts') folder = 'gifts';
+        else if (map === 'Disc') folder = 'disc';
+        else if (map === 'Currency') folder = 'currencies';
+        // materials folder is already the default
 
-      return `${folder}/${key}.png`;
-    }
-
-    function ensureImage(p) {
-      if (!p) return ASSET_BASE + 'materials/default.png';
-      if (p.startsWith('http') || p.startsWith('data:')) return p;
-
-      // Remove any existing "assets/" prefix to avoid duplication
-      if (p.startsWith('assets/')) {
-        p = p.substring(7); // Remove "assets/" prefix
+        return `assets/${folder}/${key}.png`;
       }
 
-      // For character images that already have full paths
-      if (p.includes('characters/')) {
-        return ASSET_BASE + p;
+      function ensureImage(p) {
+        if (!p) return ASSET_BASE + 'assets/materials/default.png';
+        if (p.startsWith('http') || p.startsWith('data:')) return p;
+
+        // If the path is already a full path from getMaterialImagePath, use it as-is
+        if (p.includes('/')) {
+          return ASSET_BASE + p;
+        }
+
+        // For character images that already have full paths
+        if (p.includes('characters/')) {
+          return ASSET_BASE + p;
+        }
+
+        // For other cases, get the proper material path
+        return ASSET_BASE + getMaterialImagePath(p);
       }
 
-      // For other assets, ensure they're in the correct location
-      return ASSET_BASE + 'assets/' + p;
-    }
+  //
 
     /* ---------------------------
        Character & material data
