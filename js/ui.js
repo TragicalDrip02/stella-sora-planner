@@ -1,8 +1,7 @@
 /* ===========================================================
-   ui.js — rendering, modals, event wiring, initialization
+   ui.js — rendering, modals, events, and initialization
    =========================================================== */
 
-/* Compute materials for a config */
 function calcAscensionMaterialsForChar(charId, currentLevel, desiredLevel) {
   const ch = characters.find((c) => c.id === charId);
   if (!ch) return {};
@@ -30,7 +29,6 @@ function calcSkillMaterialsForChar(charId, curSkill, desSkill) {
   return out;
 }
 
-/* Aggregation for a character configuration */
 function computeMaterialsForConfig(cfg) {
   const asc = calcAscensionMaterialsForChar(cfg.charId, cfg.currentLevel, cfg.desiredLevel);
   const atk = calcSkillMaterialsForChar(cfg.charId, cfg.atkCur, cfg.atkDes);
@@ -39,24 +37,32 @@ function computeMaterialsForConfig(cfg) {
   if (expCalc.totalExp > 0) {
     const breakdown = expToMaterials(expCalc.totalExp);
     for (const matName in breakdown)
-      expEntries[matName] = {
-        name: matName,
-        image: ensureImage(matName),
-        count: breakdown[matName],
-      };
+      expEntries[matName] = { name: matName, image: ensureImage(matName), count: breakdown[matName] };
   }
   const dorraMap = {};
   if (expCalc.totalDorra > 0)
-    dorraMap["Dorra"] = {
-      name: "Dorra",
-      image: ensureImage("Dorra"),
-      count: expCalc.totalDorra,
-    };
-
+    dorraMap["Dorra"] = { name: "Dorra", image: ensureImage("Dorra"), count: expCalc.totalDorra };
   return Object.values(aggregateMaps([asc, atk, expEntries, dorraMap]));
 }
 
-/* Rendering: materials summary */
+/* Local storage helpers */
+const STORAGE_KEY = "stella_sora_saved";
+function loadSaved() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  } catch {
+    return [];
+  }
+}
+function saveConfig(cfg) {
+  const arr = loadSaved();
+  const i = arr.findIndex((c) => c.charId === cfg.charId);
+  if (i >= 0) arr[i] = cfg;
+  else arr.push(cfg);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+}
+
+/* Rendering */
 function renderMaterials() {
   const grid = $("#materialsGrid");
   grid.innerHTML = "";
@@ -72,26 +78,6 @@ function renderMaterials() {
   });
 }
 
-/* Basic localStorage handling */
-const STORAGE_KEY = "stella_sora_saved";
-
-function loadSaved() {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-  } catch {
-    return [];
-  }
-}
-
-function saveConfig(cfg) {
-  const arr = loadSaved();
-  const existing = arr.findIndex((c) => c.charId === cfg.charId);
-  if (existing >= 0) arr[existing] = cfg;
-  else arr.push(cfg);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
-}
-
-/* Character rendering */
 function renderSavedCharacters() {
   const grid = $("#characterGrid");
   const saved = loadSaved();
@@ -120,6 +106,7 @@ function initUI() {
     renderSavedCharacters();
     renderMaterials();
   });
+
   renderSavedCharacters();
   renderMaterials();
 }
