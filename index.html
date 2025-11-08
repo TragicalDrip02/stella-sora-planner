@@ -789,6 +789,82 @@
     </div>
   </div>
 
+  <!-- Disc List Modal -->
+  <div id="discListModal" class="modal" aria-hidden="true">
+    <div class="modal-panel-list panel" role="dialog" aria-modal="true" style="max-width: 800px;">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <strong style="font-size:1.1rem">Select Disc</strong>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input id="discListSearch" placeholder="Search..."
+            style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:rgba(0,0,0,0.08);color:inherit">
+          <button id="closeDiscListModal" class="nav-button">Close</button>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;align-items:center;">
+        <label class="small muted" style="margin:0">Sort:
+          <select id="sortDiscsSelect"
+            style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:rgba(0,0,0,0.06);color:inherit">
+            <option value="default">Default</option>
+            <option value="name">Name</option>
+            <option value="element">Element</option>
+            <option value="quality">Rarity</option>
+          </select>
+        </label>
+
+        <div id="discListFilters" class="modal-controls" style="margin-left:auto"></div>
+      </div>
+
+      <div id="discModalTiles" class="modal-tiles" style="margin-top:8px"></div>
+    </div>
+  </div>
+
+  <!-- Disc Details Modal -->
+  <div id="discDetailsModal" class="modal" aria-hidden="true">
+    <div class="modal-panel-details panel" role="dialog" aria-modal="true" style="max-width: 500px;">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div id="discDetailsPortrait"
+          style="width:64px;height:64px;border-radius:10px;background-size:contain;background-repeat:no-repeat;background-position:center;border:1px solid rgba(255,255,255,0.04)">
+        </div>
+        <div>
+          <div id="discDetailsName" style="font-weight:800">Disc</div>
+          <div id="discDetailsSub" class="small muted"></div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr;gap:12px;align-items:start;">
+        <div>
+          <label class="small">Levels</label>
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="hdr" style="margin-bottom:4px;">Current</div>
+              <select id="discCurLevel" class="level-select"></select>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div class="hdr" style="margin-bottom:4px;">Desired</div>
+              <select id="discDesLevel" class="level-select"></select>
+            </div>
+          </div>
+          <div style="margin-top:10px">
+            <label class="small">Crescendo</label>
+            <input id="crescendoInput" type="number" min="1" max="6" value="1"
+              style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:rgba(0,0,0,0.08);color:inherit" />
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px">
+        <input type="checkbox" id="discObtainedFlag"><label for="discObtainedFlag" class="small muted"
+          style="margin:0">Obtained in-game</label>
+      </div>
+
+      <div style="display:flex;justify-content:flex-end;gap:8px">
+        <button id="saveDiscDetails" class="nav-button"
+          style="background:linear-gradient(180deg,#4fd6ff,#6aa7ff);font-weight:800">Save</button>
+        <button id="discDetailsClose" class="nav-button">Cancel</button>
+      </div>
+    </div>
+  </div>
 
   <script>
     /* ---------------------------
@@ -807,6 +883,22 @@
       if (txt) n.textContent = txt;
       return n;
     };
+
+    /* ---------------------------
+       Asset Base URL Configuration
+    ----------------------------*/
+    function getAssetBase() {
+      if (window.location.hostname.includes('github.io')) {
+        return '/';
+      }
+      return './';
+    }
+
+    const ASSET_BASE = getAssetBase();
+
+    function safeKey(str) {
+      return (str || '').toLowerCase().replace(/\s+/g, '_').replace(/[^\w]/g, '');
+    }
 
     /* ---------------------------
        Per-material explicit image paths
@@ -897,7 +989,12 @@
 
       // Dorra, Experience fallback images
       "dorra": "currencies/dorra.png",
-      "experience": "materials/experience.png"
+      "experience": "materials/experience.png",
+
+      // Disc materials
+      "disc_material_1": "materials/disc_material_1.png",
+      "disc_material_2": "materials/disc_material_2.png",
+      "disc_material_3": "materials/disc_material_3.png"
     };
 
     /* ---------------------------
@@ -911,30 +1008,9 @@
       "Crimson Tempter": "Weekly Boss", "Evil Bloom Essence": "Weekly Boss", "Forest Elf Fang": "Weekly Boss", "Forest Elf Essence": "Weekly Boss", "Colossus Core": "Weekly Boss", "Colossus Essence": "Weekly Boss", "Wrath Beauty": "Weekly Boss", "Wind Essence": "Weekly Boss", "Radiant Feather Crown": "Weekly Boss", "Radiant Crown Essence": "Weekly Boss", "Nightlit Haven": "Weekly Boss", "Tidal Essence": "Weekly Boss",
       "Good Citizen Point": "Emblems", "Association Contribution Certificate": "Emblems", "Grace Voucher": "Emblems",
       "Love Candle": "Gifts", "Blazing Wings": "Gifts", "Card Photo Capturer": "Gifts", "Reflective Photo Capturer": "Gifts", "Portable Blower": "Gifts", "Exquisite Blower": "Gifts", "Whisper Wind Spinner": "Gifts", "Chilling Wind Spinner": "Gifts", "Rising Star": "Gifts", "Emerging Talent": "Gifts", "Stellanite Enchantment": "Gifts", "Moonlit Companion": "Gifts", "Summer Chill Crushed Ice": "Gifts", "Fragrant Ice Delight": "Gifts", "Gilded Ceramic Bowl": "Gifts", "Blossom Porcelain Cup": "Gifts",
+      "Disc Material 1": "Disc Materials", "Disc Material 2": "Disc Materials", "Disc Material 3": "Disc Materials",
       "Dorra": "Currency"
     };
-
-    /* ---------------------------
-       Asset Base URL Configuration
-    ----------------------------*/
-    function getAssetBase() {
-      if (window.location.hostname.includes('github.io')) {
-        const pathParts = window.location.pathname.split('/');
-        const username = pathParts[1];
-        const repo = pathParts[2];
-        if (repo) {
-          return `/${username}/${repo}/`;
-        }
-        return `/${username}/`;
-      }
-      return './';
-    }
-
-    const ASSET_BASE = getAssetBase();
-
-    function safeKey(str) {
-      return (str || '').toLowerCase().replace(/\s+/g, '_').replace(/[^\w]/g, '');
-    }
 
     function getMaterialImagePath(materialName) {
       if (!materialName) return 'assets/materials/default.png';
@@ -948,6 +1024,7 @@
       if (map === 'Gifts') folder = 'gifts';
       else if (map === 'Disc') folder = 'disc';
       else if (map === 'Currency') folder = 'currencies';
+      else if (map === 'Disc Materials') folder = 'materials';
 
       return `assets/${folder}/${key}.png`;
     }
@@ -960,7 +1037,7 @@
         return ASSET_BASE + p;
       }
 
-      if (p.includes('characters/')) {
+      if (p.includes('characters/') || p.includes('discs/')) {
         return ASSET_BASE + p;
       }
 
@@ -1094,6 +1171,100 @@
     };
 
     /* ---------------------------
+       Disc data
+    ----------------------------*/
+    const manifestDiscs = [
+      { id: "sunlit_blossom", name: "Sunlit Blossom", element: "Aqua", quality: "5", image: "assets/discs/sunlit_blossom.png" },
+      { id: "witchs_swing", name: "Witch's Swing", element: "Umbra", quality: "5", image: "assets/discs/witchs_swing.png" },
+      { id: "midnight_mayhem", name: "Midnight Mayhem", element: "Lux", quality: "5", image: "assets/discs/midnight_mayhem.png" },
+      { id: "mystic_brushstrokes", name: "Mystic Brushstrokes", element: "Ignis", quality: "5", image: "assets/discs/mystic_brushstrokes.png" },
+      { id: "daylight_garden", name: "Daylight Garden", element: "Ventus", quality: "5", image: "assets/discs/daylight_garden.png" },
+      { id: "the_lost_pilgrim", name: "The Lost Pilgrim", element: "Terra", quality: "5", image: "assets/discs/the_lost_pilgrim.png" },
+      { id: "claw_the_claw", name: "Claw the Claw", element: "Terra", quality: "5", image: "assets/discs/claw_the_claw.png" },
+      { id: "scorching_nights_end", name: "Scorching Night's End", element: "Ignis", quality: "4", image: "assets/discs/scorching_nights_end.png" },
+      { id: "twin_moon_mischief", name: "Twin Moon Mischief", element: "Ignis", quality: "4", image: "assets/discs/twin_moon_mischief.png" },
+      { id: "bam_bam_girl", name: "⭐Bam Bam Girl⭐", element: "Lux", quality: "4", image: "assets/discs/bam_bam_girl.png" },
+      { id: "good_night", name: "Good Night", element: "Lux", quality: "4", image: "assets/discs/good_night.png" },
+      { id: "emerald_dream", name: "Emerald Dream", element: "Ventus", quality: "4", image: "assets/discs/emerald_dream.png" },
+      { id: "tranquil_retreat", name: "Tranquil Retreat", element: "Ventus", quality: "4", image: "assets/discs/tranquil_retreat.png" },
+      { id: "rainy_tune", name: "Rainy Tune", element: "Aqua", quality: "4", image: "assets/discs/rainy_tune.png" },
+      { id: "steam_syndrome", name: "Steam Syndrome", element: "Aqua", quality: "4", image: "assets/discs/steam_syndrome.png" },
+      { id: "meow_rhythm", name: "Meow Rhythm", element: "Umbra", quality: "4", image: "assets/discs/meow_rhythm.png" },
+      { id: "starry_night_ode", name: "Starry Night Ode", element: "Umbra", quality: "4", image: "assets/discs/starry_night_ode.png" },
+      { id: "leaf_her_to_me", name: "Leaf Her to Me", element: "Terra", quality: "4", image: "assets/discs/leaf_her_to_me.png" },
+      { id: "the_knights_smith", name: "The Knight's Smith", element: "Terra", quality: "4", image: "assets/discs/the_knights_smith.png" },
+      { id: "unknown_fragrance", name: "Unknown Fragrance", element: "Ventus", quality: "4", image: "assets/discs/unknown_fragrance.png" },
+      { id: "cage_of_roses", name: "Cage of Roses", element: "Ignis", quality: "4", image: "assets/discs/cage_of_roses.png" },
+      { id: "rolling_life", name: "Rolling Life", element: "Lux", quality: "4", image: "assets/discs/rolling_life.png" },
+      { id: "soda_shopping", name: "Soda Shopping", element: "Aqua", quality: "4", image: "assets/discs/soda_shopping.png" },
+      { id: "delusion", name: "Delusion", element: "Umbra", quality: "4", image: "assets/discs/delusion.png" },
+      { id: "the_shining", name: "The Shining", element: "Terra", quality: "4", image: "assets/discs/the_shining.png" },
+      { id: "crisp_morning", name: "Crisp Morning", element: "Neutral", quality: "3", image: "assets/discs/crisp_morning.png" },
+      { id: "sunny_breeze", name: "Sunny Breeze", element: "Neutral", quality: "3", image: "assets/discs/sunny_breeze.png" },
+      { id: "indigo_sunset", name: "Indigo Sunset", element: "Neutral", quality: "3", image: "assets/discs/indigo_sunset.png" },
+      { id: "pink_dream", name: "Pink Dream", element: "Neutral", quality: "3", image: "assets/discs/pink_dream.png" },
+      { id: "lonely_dunes", name: "Lonely Dunes", element: "Neutral", quality: "3", image: "assets/discs/lonely_dunes.png" },
+      { id: "sweet_creek", name: "Sweet Creek", element: "Neutral", quality: "3", image: "assets/discs/sweet_creek.png" },
+      { id: "starlit_hope", name: "Starlit Hope", element: "Neutral", quality: "3", image: "assets/discs/starlit_hope.png" },
+      { id: "homeward_path", name: "Homeward Path", element: "Neutral", quality: "3", image: "assets/discs/homeward_path.png" },
+      { id: "grand_feast", name: "Grand Feast", element: "Neutral", quality: "3", image: "assets/discs/grand_feast.png" },
+      { id: "whoopla", name: "Whoopla", element: "Neutral", quality: "3", image: "assets/discs/whoopla.png" },
+      { id: "elysium", name: "Elysium", element: "Neutral", quality: "3", image: "assets/discs/elysium.png" },
+      { id: "flare_frenzy", name: "Flare Frenzy", element: "Ignis", quality: "3", image: "assets/discs/flare_frenzy.png" },
+      { id: "auspicious_glow", name: "Auspicious Glow", element: "Lux", quality: "3", image: "assets/discs/auspicious_glow.png" },
+      { id: "brave_the_wind", name: "Brave the Wind", element: "Ventus", quality: "3", image: "assets/discs/brave_the_wind.png" },
+      { id: "bubbles", name: "Bubbles", element: "Aqua", quality: "3", image: "assets/discs/bubbles.png" },
+      { id: "eclipse", name: "Eclipse", element: "Umbra", quality: "3", image: "assets/discs/eclipse.png" },
+      { id: "fortitude", name: "Fortitude", element: "Terra", quality: "3", image: "assets/discs/fortitude.png" }
+    ];
+
+    // Placeholder materials for disc ascension (same structure as characters)
+    const discAscensionMaterials = {
+      sunlit_blossom: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      witchs_swing: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      midnight_mayhem: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      mystic_brushstrokes: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      daylight_garden: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      the_lost_pilgrim: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      claw_the_claw: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      scorching_nights_end: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      twin_moon_mischief: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      bam_bam_girl: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      good_night: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      emerald_dream: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      tranquil_retreat: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      rainy_tune: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      steam_syndrome: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      meow_rhythm: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      starry_night_ode: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      leaf_her_to_me: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      the_knights_smith: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      unknown_fragrance: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      cage_of_roses: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      rolling_life: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      soda_shopping: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      delusion: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      the_shining: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      crisp_morning: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      sunny_breeze: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      indigo_sunset: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      pink_dream: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      lonely_dunes: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      sweet_creek: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      starlit_hope: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      homeward_path: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      grand_feast: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      whoopla: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      elysium: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      flare_frenzy: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      auspicious_glow: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      brave_the_wind: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      bubbles: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      eclipse: ["Disc Material 1", "Disc Material 2", "Disc Material 3"],
+      fortitude: ["Disc Material 1", "Disc Material 2", "Disc Material 3"]
+    };
+
+    /* ---------------------------
        Ascension tiers + experience + skill tables
     ----------------------------*/
     const ascensionTiersTemplate = [
@@ -1121,13 +1292,23 @@
       { from: 31, to: 32, exp: 19970, dorra: 3000 }, { from: 32, to: 33, exp: 21430, dorra: 3150 }, { from: 33, to: 34, exp: 22890, dorra: 3450 },
       { from: 34, to: 35, exp: 24530, dorra: 3750 }, { from: 35, to: 36, exp: 25820, dorra: 3750 }, { from: 36, to: 37, exp: 27280, dorra: 4200 },
       { from: 37, to: 38, exp: 28740, dorra: 4200 }, { from: 38, to: 39, exp: 30200, dorra: 4650 }, { from: 39, to: 40, exp: 31660, dorra: 4628 },
-      { from: 50, to: 51, exp: 32720, dorra: 4950 }, { from: 51, to: 52, exp: 37000, dorra: 5500 }, { from: 52, to: 53, exp: 40980, dorra: 6150 },
-      { from: 53, to: 54, exp: 45110, dorra: 6750 }, { from: 54, to: 55, exp: 49240, dorra: 7500 }, { from: 55, to: 56, exp: 53360, dorra: 7950 },
-      { from: 56, to: 57, exp: 57490, dorra: 8550 }, { from: 57, to: 58, exp: 61620, dorra: 9300 }, { from: 58, to: 59, exp: 65750, dorra: 9900 },
-      { from: 59, to: 60, exp: 69880, dorra: 10373 }, { from: 70, to: 71, exp: 87230, dorra: 13200 }, { from: 71, to: 72, exp: 93850, dorra: 14100 },
-      { from: 72, to: 73, exp: 100460, dorra: 15000 }, { from: 73, to: 74, exp: 107080, dorra: 16050 }, { from: 74, to: 75, exp: 113690, dorra: 17100 },
-      { from: 75, to: 76, exp: 120310, dorra: 18000 }, { from: 76, to: 77, exp: 126920, dorra: 19050 }, { from: 77, to: 78, exp: 133540, dorra: 20100 },
-      { from: 78, to: 79, exp: 140150, dorra: 21000 }, { from: 79, to: 80, exp: 146770, dorra: 21900 }
+      { from: 40, to: 41, exp: 31980, dorra: 4800 }, { from: 41, to: 42, exp: 32020, dorra: 4800 }, { from: 42, to: 43, exp: 32070, dorra: 4950 },
+      { from: 43, to: 44, exp: 32120, dorra: 4800 }, { from: 44, to: 45, exp: 32170, dorra: 4800 }, { from: 45, to: 46, exp: 32210, dorra: 4800 },
+      { from: 46, to: 47, exp: 32260, dorra: 4800 }, { from: 47, to: 48, exp: 32310, dorra: 4950 }, { from: 48, to: 49, exp: 32360, dorra: 4800 },
+      { from: 49, to: 50, exp: 32400, dorra: 4785 }, { from: 50, to: 51, exp: 32720, dorra: 4950 }, { from: 51, to: 52, exp: 37000, dorra: 5500 },
+      { from: 52, to: 53, exp: 40980, dorra: 6150 }, { from: 53, to: 54, exp: 45110, dorra: 6750 }, { from: 54, to: 55, exp: 49240, dorra: 7500 },
+      { from: 55, to: 56, exp: 53360, dorra: 7950 }, { from: 56, to: 57, exp: 57490, dorra: 8550 }, { from: 57, to: 58, exp: 61620, dorra: 9300 },
+      { from: 58, to: 59, exp: 65750, dorra: 9900 }, { from: 59, to: 60, exp: 69880, dorra: 10373 }, { from: 60, to: 61, exp: 70580, dorra: 10650 },
+      { from: 61, to: 62, exp: 72330, dorra: 10800 }, { from: 62, to: 63, exp: 74090, dorra: 11100 }, { from: 63, to: 64, exp: 75840, dorra: 11400 },
+      { from: 64, to: 65, exp: 77600, dorra: 11700 }, { from: 65, to: 66, exp: 79350, dorra: 11850 }, { from: 66, to: 67, exp: 81110, dorra: 12150 },
+      { from: 67, to: 68, exp: 82860, dorra: 12450 }, { from: 68, to: 69, exp: 84620, dorra: 12750 }, { from: 69, to: 70, exp: 86370, dorra: 12863 },
+      { from: 70, to: 71, exp: 87230, dorra: 13200 }, { from: 71, to: 72, exp: 93850, dorra: 14100 }, { from: 72, to: 73, exp: 100460, dorra: 15000 },
+      { from: 73, to: 74, exp: 107080, dorra: 16050 }, { from: 74, to: 75, exp: 113690, dorra: 17100 }, { from: 75, to: 76, exp: 120310, dorra: 18000 },
+      { from: 76, to: 77, exp: 126920, dorra: 19050 }, { from: 77, to: 78, exp: 133540, dorra: 20100 }, { from: 78, to: 79, exp: 140150, dorra: 21000 },
+      { from: 79, to: 80, exp: 146770, dorra: 21900 }, { from: 80, to: 81, exp: 147280, dorra: 22200 }, { from: 81, to: 82, exp: 147670, dorra: 22050 },
+      { from: 82, to: 83, exp: 148060, dorra: 22350 }, { from: 83, to: 84, exp: 148450, dorra: 22200 }, { from: 84, to: 85, exp: 148840, dorra: 22350 },
+      { from: 85, to: 86, exp: 149240, dorra: 22350 }, { from: 86, to: 87, exp: 149630, dorra: 22500 }, { from: 87, to: 88, exp: 150020, dorra: 22500 },
+      { from: 88, to: 89, exp: 150400, dorra: 22500 }, { from: 89, to: 90, exp: 150800, dorra: 22559 }
     ];
 
     const skillMaterialTable = [
@@ -1205,6 +1386,21 @@
 
     const characters = manifestCharacters.map(buildCharacterWithTiers);
 
+    function buildDiscWithTiers(disc) {
+      const asc = discAscensionMaterials[disc.id] || ['Disc Material 1', 'Disc Material 2', 'Disc Material 3'];
+      const tiers = ascensionTiersTemplate.map(t => {
+        const mats = [];
+        if (t.basic > 0) mats.push({ id: `${disc.id}_asc1_${t.level}`, name: asc[0], count: t.basic, type: 'Ascension', rarity: 'Basic', image: ensureImage(asc[0]) });
+        if (t.inter > 0) mats.push({ id: `${disc.id}_asc2_${t.level}`, name: asc[1], count: t.inter, type: 'Ascension', rarity: 'Intermediate', image: ensureImage(asc[1]) });
+        if (t.adv > 0) mats.push({ id: `${disc.id}_asc3_${t.level}`, name: asc[2], count: t.adv, type: 'Ascension', rarity: 'Advanced', image: ensureImage(asc[2]) });
+        mats.push({ id: `${disc.id}_dorra_${t.level}`, name: 'Dorra', count: t.dorra, type: 'Currency', image: ensureImage('Dorra') });
+        return { level: t.level, materials: mats };
+      });
+      return { ...disc, tiers, ascensionMaterials: asc };
+    }
+
+    const discs = manifestDiscs.map(buildDiscWithTiers);
+
     /* ---------------------------
        Category detection & sorting
     ----------------------------*/
@@ -1231,6 +1427,7 @@
         if (map === 'Experience') return 'Experience';
         if (map === 'Gifts') return 'Gifts';
         if (map === 'Disc') return 'Disc';
+        if (map === 'Disc Materials') return 'Disc Materials';
         return map;
       }
       const n = (name || '').toLowerCase();
@@ -1275,7 +1472,7 @@
       return { group: null, idx: 9999 };
     }
 
-    const ORDER_MAP = { 'Dorra': 0, 'Experience': 1, 'Character': 2, 'Disc': 3, 'Skill': 4, 'Ascension': 5, 'Boss': 6, 'Emblems': 7, 'Gifts': 8, 'Misc': 9 };
+    const ORDER_MAP = { 'Dorra': 0, 'Experience': 1, 'Character': 2, 'Disc': 3, 'Skill': 4, 'Ascension': 5, 'Boss': 6, 'Emblems': 7, 'Gifts': 8, 'Disc Materials': 9, 'Misc': 10 };
 
     function materialSort(a, b) {
       const an = (a && a.name) ? a.name : (a || '');
@@ -1315,6 +1512,18 @@
       const ch = characters.find(c => c.id === charId);
       if (!ch) return {};
       const tiers = ch.tiers.filter(t => t.level > currentLevel && t.level <= desiredLevel);
+      const out = {};
+      tiers.forEach(t => t.materials.forEach(m => {
+        if (!out[m.name]) out[m.name] = { ...m };
+        else out[m.name].count += m.count;
+      }));
+      return out;
+    }
+
+    function calcAscensionMaterialsForDisc(discId, currentLevel, desiredLevel) {
+      const disc = discs.find(d => d.id === discId);
+      if (!disc) return {};
+      const tiers = disc.tiers.filter(t => t.level > currentLevel && t.level <= desiredLevel);
       const out = {};
       tiers.forEach(t => t.materials.forEach(m => {
         if (!out[m.name]) out[m.name] = { ...m };
@@ -1389,9 +1598,29 @@
       return Object.values(aggregateMaps([asc, atk, main, sup, ult, expEntries, dorraMap]));
     }
 
+    function computeMaterialsForDiscConfig(cfg) {
+      const asc = calcAscensionMaterialsForDisc(cfg.discId, cfg.currentLevel, cfg.desiredLevel);
+      const expCalc = calculateExperienceNeeded(cfg.currentLevel, cfg.desiredLevel);
+
+      const expEntries = {};
+      if (expCalc.totalExp > 0) {
+        const breakdown = expToMaterials(expCalc.totalExp);
+        for (const matName in breakdown) {
+          expEntries[matName] = { name: matName, image: ensureImage(matName), type: 'Experience', count: breakdown[matName] };
+        }
+      }
+
+      const dorraMap = {};
+      if (expCalc.totalDorra > 0) dorraMap['Dorra'] = { name: 'Dorra', image: ensureImage('Dorra'), type: 'Currency', count: expCalc.totalDorra };
+
+      return Object.values(aggregateMaps([asc, expEntries, dorraMap]));
+    }
+
     function computeCombinedTotals() {
-      const saved = loadSaved().filter(cfg => !cfg.ignored && !cfg.completed);
-      const maps = saved.map(cfg => {
+      const savedChars = loadSaved().filter(cfg => !cfg.ignored && !cfg.completed);
+      const savedDiscs = loadSavedDiscs().filter(cfg => !cfg.ignored && !cfg.completed);
+
+      const charMaps = savedChars.map(cfg => {
         const asc = calcAscensionMaterialsForChar(cfg.charId, cfg.currentLevel, cfg.desiredLevel);
         const atk = calcSkillMaterialsForChar(cfg.charId, cfg.atkCur, cfg.atkDes);
         const main = calcSkillMaterialsForChar(cfg.charId, cfg.mainCur, cfg.mainDes);
@@ -1407,8 +1636,22 @@
         if (expCalc.totalDorra > 0) dorraMap['Dorra'] = { name: 'Dorra', image: ensureImage('Dorra'), type: 'Currency', count: expCalc.totalDorra };
         return aggregateMaps([asc, atk, main, sup, ult, expEntries, dorraMap]);
       });
+
+      const discMaps = savedDiscs.map(cfg => {
+        const asc = calcAscensionMaterialsForDisc(cfg.discId, cfg.currentLevel, cfg.desiredLevel);
+        const expCalc = calculateExperienceNeeded(cfg.currentLevel, cfg.desiredLevel);
+        const expEntries = {};
+        if (expCalc.totalExp > 0) {
+          const breakdown = expToMaterials(expCalc.totalExp);
+          for (const matName in breakdown) expEntries[matName] = { name: matName, image: ensureImage(matName), type: 'Experience', count: breakdown[matName] };
+        }
+        const dorraMap = {};
+        if (expCalc.totalDorra > 0) dorraMap['Dorra'] = { name: 'Dorra', image: ensureImage('Dorra'), type: 'Currency', count: expCalc.totalDorra };
+        return aggregateMaps([asc, expEntries, dorraMap]);
+      });
+
       const merged = {};
-      maps.forEach(m => {
+      [...charMaps, ...discMaps].forEach(m => {
         for (const k in m) {
           if (!merged[k]) merged[k] = { ...m[k] };
           else merged[k].count += m[k].count;
@@ -1421,6 +1664,7 @@
        Storage helpers
     ----------------------------*/
     const STORAGE_KEY = 'stella_final_configs_v2';
+    const STORAGE_KEY_DISCS = 'stella_final_disc_configs_v2';
     const INVENTORY_KEY = 'STELLA_INVENTORY_DATA';
     const THEME_KEY = 'STELLA_THEME_MODE';
     const VIEW_MODE_KEY = 'STELLA_MATERIALS_VIEW_MODE';
@@ -1435,6 +1679,18 @@
       saveAll(arr);
     }
     const removeConfig = id => saveAll(loadSaved().filter(x => x.id !== id));
+
+    const loadSavedDiscs = () => JSON.parse(localStorage.getItem(STORAGE_KEY_DISCS) || '[]');
+    const saveAllDiscs = arr => localStorage.setItem(STORAGE_KEY_DISCS, JSON.stringify(arr));
+    const addOrUpdateDisc = cfg => {
+      const arr = loadSavedDiscs();
+      const idx = arr.findIndex(x => x.id === cfg.id);
+      if (idx >= 0) arr[idx] = cfg;
+      else arr.push(cfg);
+      saveAllDiscs(arr);
+    }
+    const removeDiscConfig = id => saveAllDiscs(loadSavedDiscs().filter(x => x.id !== id));
+
     const loadInventory = () => {
       try {
         return JSON.parse(localStorage.getItem(INVENTORY_KEY) || '{}');
@@ -1473,7 +1729,7 @@
       materialsGrid.innerHTML = '';
 
       if (!arr.length) {
-        materialsGrid.innerHTML = '<div class="small muted">Add characters to see totals.</div>';
+        materialsGrid.innerHTML = '<div class="small muted">Add characters or discs to see totals.</div>';
         return;
       }
 
@@ -1912,6 +2168,193 @@
     });
 
     /* ---------------------------
+       Disc modal functionality
+    ----------------------------*/
+    const discListModal = $('#discListModal');
+    const discModalTiles = $('#discModalTiles');
+    const discListSearch = $('#discListSearch');
+    const discListFilters = $('#discListFilters');
+    const closeDiscListModal = $('#closeDiscListModal');
+    const discDetailsModal = $('#discDetailsModal');
+    const discDetailsPortrait = $('#discDetailsPortrait');
+    const discDetailsName = $('#discDetailsName');
+    const discDetailsSub = $('#discDetailsSub');
+    const discCurLevel = $('#discCurLevel');
+    const discDesLevel = $('#discDesLevel');
+    const crescendoInput = $('#crescendoInput');
+    const saveDiscDetailsBtn = $('#saveDiscDetails');
+    const discDetailsCloseBtn = $('#discDetailsClose');
+    let editingDiscConfigId = null;
+
+    const DISC_FILTERS = [
+      { label: 'Element', id: 'discFilterElement', options: ['', 'Aqua', 'Ignis', 'Terra', 'Ventus', 'Lux', 'Umbra', 'Neutral'] },
+      { label: 'Quality', id: 'discFilterQuality', options: ['', '3', '4', '5'] }
+    ];
+
+    function createDiscListFilters() {
+      discListFilters.innerHTML = '';
+      DISC_FILTERS.forEach(f => {
+        const lbl = el('label', { style: 'margin:0;font-size:13px;color:var(--muted-dark)' }, `${f.label}: `);
+        const s = el('select', { id: f.id });
+        f.options.forEach(opt => s.appendChild(el('option', {}, opt)));
+        s.style.padding = '8px';
+        s.style.borderRadius = '8px';
+        s.style.border = '1px solid rgba(255,255,255,0.04)';
+        s.style.background = 'rgba(0,0,0,0.06)';
+        s.style.color = 'inherit';
+        lbl.appendChild(s);
+        discListFilters.appendChild(lbl);
+      });
+    }
+
+    function populateModalDiscs() {
+      const saved = loadSavedDiscs();
+      const q = (discListSearch.value || '').toLowerCase();
+      const fe = $('#discFilterElement')?.value || '';
+      const fq = $('#discFilterQuality')?.value || '';
+
+      const sortBy = $('#sortDiscsSelect')?.value || 'default';
+
+      discModalTiles.innerHTML = '';
+      let list = discs.map(d => ({ ...d, savedCfg: saved.find(s => s.discId === d.id) }));
+
+      list = list.filter(d => {
+        if (q && !(d.name.toLowerCase().includes(q) || (d.element || '').toLowerCase().includes(q) || (d.id || '').toLowerCase().includes(q))) return false;
+        if (fe && d.element !== fe) return false;
+        if (fq && d.quality !== fq) return false;
+        return true;
+      });
+
+      list.sort((a, b) => {
+        switch (sortBy) {
+          case 'name': return a.name.localeCompare(b.name);
+          case 'element': return (a.element || '').localeCompare(b.element || '');
+          case 'quality': return (b.quality || '').localeCompare(a.quality || '');
+          default: return 0;
+        }
+      });
+
+      list.forEach(d => {
+        const tile = el('div', { class: 'tile' });
+        const already = saved.find(s => s.discId === d.id && !s.completed);
+        if (already) tile.classList.add('disabled');
+        tile.innerHTML = `<img src="${d.image}" alt="${d.name}" style="width:60px;height:60px"><div style="font-weight:800;font-size:0.9rem">${d.name}</div><div class="small muted">${d.element} • ${d.quality}★</div>`;
+        tile.addEventListener('click', () => {
+          if (tile.classList.contains('disabled')) return;
+          discListModal.classList.remove('open');
+          discListModal.setAttribute('aria-hidden', 'true');
+          openDiscDetailsForNew(d.id);
+        });
+        discModalTiles.appendChild(tile);
+      });
+    }
+
+    function buildDiscLevelSelects() {
+      discCurLevel.innerHTML = '';
+      discDesLevel.innerHTML = '';
+      LEVEL_OPTIONS.forEach(l => {
+        discCurLevel.appendChild(el('option', { value: l }, l));
+        discDesLevel.appendChild(el('option', { value: l }, l));
+      });
+      discCurLevel.classList.add('level-select');
+      discDesLevel.classList.add('level-select');
+    }
+
+    function openDiscDetailsForNew(discId) {
+      editingDiscConfigId = null;
+      const disc = discs.find(d => d.id === discId);
+      if (!disc) return;
+
+      discDetailsPortrait.style.backgroundImage = `url(${disc.image})`;
+      discDetailsName.textContent = disc.name;
+      discDetailsSub.textContent = `${disc.element} • ${disc.quality}★`;
+      buildDiscLevelSelects();
+      discCurLevel.value = '1';
+      discDesLevel.value = '1';
+      crescendoInput.value = '1';
+      $('#discObtainedFlag').checked = false;
+      discDetailsModal.classList.add('open');
+      discDetailsModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function openDiscDetailsForEdit(cfgId) {
+      const saved = loadSavedDiscs();
+      const cfg = saved.find(x => x.id === cfgId);
+      if (!cfg) return;
+
+      editingDiscConfigId = cfgId;
+      const disc = discs.find(d => d.id === cfg.discId);
+      if (!disc) return;
+
+      discDetailsPortrait.style.backgroundImage = `url(${disc.image})`;
+      discDetailsName.textContent = disc.name;
+      discDetailsSub.textContent = `${disc.element} • ${disc.quality}★`;
+      buildDiscLevelSelects();
+      discCurLevel.value = cfg.currentLevel;
+      discDesLevel.value = cfg.desiredLevel;
+      crescendoInput.value = cfg.crescendo || 1;
+      $('#discObtainedFlag').checked = !!cfg.obtained;
+      discDetailsModal.classList.add('open');
+      discDetailsModal.setAttribute('aria-hidden', 'false');
+    }
+
+    $('#addDiscBtn').addEventListener('click', () => {
+      createDiscListFilters();
+      populateModalDiscs();
+      discListModal.classList.add('open');
+      discListModal.setAttribute('aria-hidden', 'false');
+
+      DISC_FILTERS.forEach(f => {
+        const filterEl = $(`#${f.id}`);
+        if (filterEl) {
+          filterEl.addEventListener('change', populateModalDiscs);
+        }
+      });
+    });
+
+    closeDiscListModal.addEventListener('click', () => discListModal.classList.remove('open'));
+
+    discCurLevel.addEventListener('change', () => {
+      const cur = Number(discCurLevel.value);
+      const des = Number(discDesLevel.value);
+      if (des < cur) discDesLevel.value = cur;
+    });
+
+    discDesLevel.addEventListener('change', () => {
+      const cur = Number(discCurLevel.value);
+      const des = Number(discDesLevel.value);
+      if (des < cur) discDesLevel.value = cur;
+    });
+
+    saveDiscDetailsBtn.addEventListener('click', () => {
+      const cfg = {
+        id: editingDiscConfigId || `disc_cfg_${Date.now()}`,
+        discId: discs.find(d => d.name === discDetailsName.textContent)?.id || discs[0].id,
+        currentLevel: Number(discCurLevel.value),
+        desiredLevel: Number(discDesLevel.value),
+        crescendo: Number(crescendoInput.value || 1),
+        obtained: $('#discObtainedFlag').checked,
+        ignored: false,
+        completed: false
+      };
+
+      if (cfg.desiredLevel < cfg.currentLevel) cfg.desiredLevel = cfg.currentLevel;
+      if (cfg.crescendo < 1) cfg.crescendo = 1;
+      if (cfg.crescendo > 6) cfg.crescendo = 6;
+
+      addOrUpdateDisc(cfg);
+      discDetailsModal.classList.remove('open');
+      discDetailsModal.setAttribute('aria-hidden', 'true');
+      renderMaterials(getMaterialsViewMode());
+      populateModalDiscs();
+    });
+
+    discDetailsCloseBtn.addEventListener('click', () => {
+      discDetailsModal.classList.remove('open');
+      discDetailsModal.setAttribute('aria-hidden', 'true');
+    });
+
+    /* ---------------------------
        Inventory modal logic
     ----------------------------*/
     const manageInventoryBtn = $('#manageInventoryBtn');
@@ -1982,6 +2425,11 @@
         });
       }
 
+      // Add disc materials
+      ['Disc Material 1', 'Disc Material 2', 'Disc Material 3'].forEach(n => {
+        set[n] = { name: n, image: getMaterialImagePath(n), category: 'Disc Materials' };
+      });
+
       delete set['Dorra'];
       return Object.values(set);
     }
@@ -1997,7 +2445,7 @@
         case 'Character': return category === 'Ascension';
         case 'Disc': return category === 'Disc';
         case 'Skill Materials': return category === 'Skill';
-        case 'Disc Materials': return category === 'Disc';
+        case 'Disc Materials': return category === 'Disc Materials';
         case 'Ascension Materials': return category === 'Ascension';
         case 'Weekly Boss': return category === 'Boss';
         case 'Emblems': return category === 'Emblems';
@@ -2200,7 +2648,9 @@
     (function init() {
       masterMaterials = buildMasterMaterialsList();
       createListFilters();
+      createDiscListFilters();
       populateModalCharacters();
+      populateModalDiscs();
       const mode = localStorage.getItem(VIEW_MODE_KEY) || 'total';
       updateModeButtons(mode);
       renderMaterials(mode);
@@ -2211,12 +2661,25 @@
         sortSelect.addEventListener('change', populateModalCharacters);
       }
 
+      const discSortSelect = $('#sortDiscsSelect');
+      if (discSortSelect) {
+        discSortSelect.addEventListener('change', populateModalDiscs);
+      }
+
       listSearch.addEventListener('input', populateModalCharacters);
+      discListSearch.addEventListener('input', populateModalDiscs);
 
       FILTERS_FOR_LIST.forEach(f => {
         const filterEl = $(`#${f.id}`);
         if (filterEl) {
           filterEl.addEventListener('change', populateModalCharacters);
+        }
+      });
+
+      DISC_FILTERS.forEach(f => {
+        const filterEl = $(`#${f.id}`);
+        if (filterEl) {
+          filterEl.addEventListener('change', populateModalDiscs);
         }
       });
     })();
